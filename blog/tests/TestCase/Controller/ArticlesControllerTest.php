@@ -17,7 +17,8 @@ class ArticlesControllerTest extends IntegrationTestCase
      */
     public $fixtures = [
         'app.articles',
-        'app.categories'
+        'app.pictures',
+        'app.comments'
     ];
 
     /**

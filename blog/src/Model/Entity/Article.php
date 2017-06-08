@@ -9,11 +9,12 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $title
  * @property string $body
- * @property int $category_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
+ * @property int $picture_id
  *
- * @property \App\Model\Entity\Category $category
+ * @property \App\Model\Entity\Picture $picture
+ * @property \App\Model\Entity\Comment[] $comments
  */
 class Article extends Entity
 {

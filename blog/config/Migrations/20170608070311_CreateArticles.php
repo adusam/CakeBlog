@@ -30,12 +30,7 @@ class CreateArticles extends AbstractMigration
             'default' => null,
             'null' => false,
         ]);
-        $table->addColumn('cat_id', 'integer', [
-            'default' => null,
-            'limit' => 11,
-            'null' => true,
-        ]);
-        $table->addColumn('pic_id', 'integer', [
+        $table->addColumn('picture_id', 'integer', [
             'default' => null,
             'limit' => 11,
             'null' => true,

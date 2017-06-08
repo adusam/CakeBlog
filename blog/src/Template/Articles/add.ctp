@@ -7,8 +7,10 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('List Articles'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Categories'), ['controller' => 'Categories', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Category'), ['controller' => 'Categories', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Pictures'), ['controller' => 'Pictures', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Picture'), ['controller' => 'Pictures', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Comments'), ['controller' => 'Comments', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Comment'), ['controller' => 'Comments', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="articles form large-9 medium-8 columns content">
@@ -18,7 +20,7 @@
         <?php
             echo $this->Form->control('title');
             echo $this->Form->control('body');
-            echo $this->Form->control('category_id', ['options' => $categories]);
+            echo $this->Form->control('picture_id');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

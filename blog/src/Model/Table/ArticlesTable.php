@@ -9,7 +9,8 @@ use Cake\Validation\Validator;
 /**
  * Articles Model
  *
- * @property \Cake\ORM\Association\BelongsTo $Categories
+ * @property \Cake\ORM\Association\BelongsTo $Pictures
+ * @property \Cake\ORM\Association\HasMany $Comments
  *
  * @method \App\Model\Entity\Article get($primaryKey, $options = [])
  * @method \App\Model\Entity\Article newEntity($data = null, array $options = [])
@@ -40,9 +41,11 @@ class ArticlesTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Categories', [
-            'foreignKey' => 'category_id',
-            'joinType' => 'INNER'
+        $this->belongsTo('Pictures', [
+            'foreignKey' => 'picture_id'
+        ]);
+        $this->hasMany('Comments', [
+            'foreignKey' => 'article_id'
         ]);
     }
 
@@ -78,7 +81,7 @@ class ArticlesTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['category_id'], 'Categories'));
+        $rules->add($rules->existsIn(['picture_id'], 'Pictures'));
 
         return $rules;
     }
