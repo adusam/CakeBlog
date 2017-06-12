@@ -63,11 +63,17 @@ class ArticlesTable extends Table
 
         $validator
             ->requirePresence('title', 'create')
-            ->notEmpty('title');
+            ->notEmpty('title', 'Fill this field.')
+            ->add('title', [
+                'length' => [
+                    'rule' => ['maxLength', 50],
+                    'message' => 'Title could be 50 caractors or less',
+                ]
+            ]);
 
         $validator
             ->requirePresence('body', 'create')
-            ->notEmpty('body');
+            ->notEmpty('body', 'Fill this field.');
 
         return $validator;
     }
