@@ -18,8 +18,22 @@ class ManageController extends AppController
 
     public function initialize()
    {
+
+
        parent::initialize();
        $this->Articles = TableRegistry::get('Articles');
+       /*$user = $this->Auth->user();
+       if(is_null($user))
+       {
+           //ログアウト状態
+           $this->redirect(['controller'=>'Articles', 'action'=>'index']);
+       }
+       else
+       {
+
+           //ログイン状態
+       }
+*/
 
    }
     /**

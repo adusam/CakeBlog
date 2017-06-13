@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * Articles Controller
@@ -28,6 +29,12 @@ class ArticlesController extends AppController
         $this->set(compact('articles'));
         $this->set('_serialize', ['articles']);
     }
+
+
+    public function beforeFilter(Event $event)
+       {
+           $this->Auth->allow(['index', 'view']);
+       }
 
     /**
      * View method
@@ -132,6 +139,7 @@ class ArticlesController extends AppController
 
     return parent::isAuthorized($user);
 }
+
 public function isOwnedBy($articleId, $userId)
 {
     return $this->exists(['id' => $articleId, 'user_id' => $userId]);
