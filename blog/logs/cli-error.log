@@ -1,0 +1,173 @@
+2017-06-08 15:21:21 Error: [PDOException] SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'articles' already exists in C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Db\Adapter\PdoAdapter.php on line 338
+Stack Trace:
+#0 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Db\Adapter\PdoAdapter.php(338): PDO->exec('CREATE TABLE `a...')
+#1 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Db\Adapter\MysqlAdapter.php(305): Phinx\Db\Adapter\PdoAdapter->execute('CREATE TABLE `a...')
+#2 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\CakeAdapter.php(423): Phinx\Db\Adapter\MysqlAdapter->createTable(Object(Migrations\Table))
+#3 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Db\Table.php(611): Migrations\CakeAdapter->createTable(Object(Migrations\Table))
+#4 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\Table.php(69): Phinx\Db\Table->create()
+#5 C:\xampp\htdocs\cakeblog\blog\config\Migrations\20170602065334_CreateArticles.php(38): Migrations\Table->create()
+#6 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Migration\Manager\Environment.php(120): CreateArticles->change()
+#7 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Migration\Manager.php(327): Phinx\Migration\Manager\Environment->executeMigration(Object(CreateArticles), 'up')
+#8 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Migration\Manager.php(303): Phinx\Migration\Manager->executeMigration('default', Object(CreateArticles), 'up')
+#9 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Console\Command\Migrate.php(113): Phinx\Migration\Manager->migrate('default', '20170608054407')
+#10 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\ConfigurationTrait.php(165): Phinx\Console\Command\Migrate->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#11 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\Command\Migrate.php(64): Migrations\Command\Migrate->parentExecute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Command\Command.php(264): Migrations\Command\Migrate->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Application.php(869): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Application.php(223): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Migrate), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Application.php(130): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(101): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\Shell.php(472): Migrations\Shell\MigrationsShell->main('migrations', 'migrate')
+#18 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(156): Cake\Console\Shell->runCommand(Array, true, Array)
+#19 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(230): Migrations\Shell\MigrationsShell->runCommand(Array, true, Array)
+#20 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#21 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#22 C:\xampp\htdocs\cakeblog\blog\bin\cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#23 {main}
+
+
+2017-06-08 15:26:51 Error: [InvalidArgumentException] There was a problem connecting to the database: SQLSTATE[HY000] [2002] 対象のコンピューターによって拒否されたため、接続できませんでした。
+ in C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Db\Adapter\MysqlAdapter.php on line 115
+Stack Trace:
+#0 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Db\Adapter\PdoAdapter.php(238): Phinx\Db\Adapter\MysqlAdapter->connect()
+#1 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\CakeAdapter.php(57): Phinx\Db\Adapter\PdoAdapter->getConnection()
+#2 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\ConfigurationTrait.php(220): Migrations\CakeAdapter->__construct(Object(Phinx\Db\Adapter\MysqlAdapter), Object(Cake\Database\Connection))
+#3 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Console\Command\Rollback.php(77): Migrations\Command\Rollback->bootstrap(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\ConfigurationTrait.php(165): Phinx\Console\Command\Rollback->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\Command\Rollback.php(65): Migrations\Command\Rollback->parentExecute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Command\Command.php(264): Migrations\Command\Rollback->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Application.php(869): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#8 C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Application.php(223): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Rollback), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#9 C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Application.php(130): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#10 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(101): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#11 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\Shell.php(472): Migrations\Shell\MigrationsShell->main('migrations', 'rollback')
+#12 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(156): Cake\Console\Shell->runCommand(Array, true, Array)
+#13 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(230): Migrations\Shell\MigrationsShell->runCommand(Array, true, Array)
+#14 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#15 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#16 C:\xampp\htdocs\cakeblog\blog\bin\cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#17 {main}
+
+
+2017-06-08 15:28:56 Error: [PDOException] SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'articles' already exists in C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Db\Adapter\PdoAdapter.php on line 338
+Stack Trace:
+#0 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Db\Adapter\PdoAdapter.php(338): PDO->exec('CREATE TABLE `a...')
+#1 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Db\Adapter\MysqlAdapter.php(305): Phinx\Db\Adapter\PdoAdapter->execute('CREATE TABLE `a...')
+#2 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\CakeAdapter.php(423): Phinx\Db\Adapter\MysqlAdapter->createTable(Object(Migrations\Table))
+#3 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Db\Table.php(611): Migrations\CakeAdapter->createTable(Object(Migrations\Table))
+#4 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\Table.php(69): Phinx\Db\Table->create()
+#5 C:\xampp\htdocs\cakeblog\blog\config\Migrations\20170602065334_CreateArticles.php(38): Migrations\Table->create()
+#6 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Migration\Manager\Environment.php(120): CreateArticles->change()
+#7 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Migration\Manager.php(327): Phinx\Migration\Manager\Environment->executeMigration(Object(CreateArticles), 'up')
+#8 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Migration\Manager.php(303): Phinx\Migration\Manager->executeMigration('default', Object(CreateArticles), 'up')
+#9 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Console\Command\Migrate.php(113): Phinx\Migration\Manager->migrate('default', '20170608054407')
+#10 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\ConfigurationTrait.php(165): Phinx\Console\Command\Migrate->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#11 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\Command\Migrate.php(64): Migrations\Command\Migrate->parentExecute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Command\Command.php(264): Migrations\Command\Migrate->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Application.php(869): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Application.php(223): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Migrate), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Application.php(130): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(101): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\Shell.php(472): Migrations\Shell\MigrationsShell->main('migrations', 'migrate')
+#18 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(156): Cake\Console\Shell->runCommand(Array, true, Array)
+#19 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(230): Migrations\Shell\MigrationsShell->runCommand(Array, true, Array)
+#20 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#21 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#22 C:\xampp\htdocs\cakeblog\blog\bin\cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#23 {main}
+
+
+2017-06-08 15:29:43 Error: [InvalidArgumentException] An invalid column type "mediumblob" was specified for column "pic_data". in C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Db\Table.php on line 351
+Stack Trace:
+#0 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\Table.php(56): Phinx\Db\Table->addColumn('pic_data', 'mediumblob', Array)
+#1 C:\xampp\htdocs\cakeblog\blog\config\Migrations\20170608053930_CreatePictures.php(17): Migrations\Table->addColumn('pic_data', 'mediumblob', Array)
+#2 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Migration\Manager\Environment.php(120): CreatePictures->change()
+#3 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Migration\Manager.php(327): Phinx\Migration\Manager\Environment->executeMigration(Object(CreatePictures), 'up')
+#4 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Migration\Manager.php(303): Phinx\Migration\Manager->executeMigration('default', Object(CreatePictures), 'up')
+#5 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Console\Command\Migrate.php(113): Phinx\Migration\Manager->migrate('default', '20170608054407')
+#6 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\ConfigurationTrait.php(165): Phinx\Console\Command\Migrate->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\Command\Migrate.php(64): Migrations\Command\Migrate->parentExecute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#8 C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Command\Command.php(264): Migrations\Command\Migrate->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#9 C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Application.php(869): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#10 C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Application.php(223): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Migrate), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#11 C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Application.php(130): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(101): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\Shell.php(472): Migrations\Shell\MigrationsShell->main('migrations', 'migrate')
+#14 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(156): Cake\Console\Shell->runCommand(Array, true, Array)
+#15 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(230): Migrations\Shell\MigrationsShell->runCommand(Array, true, Array)
+#16 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#17 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#18 C:\xampp\htdocs\cakeblog\blog\bin\cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#19 {main}
+
+
+2017-06-08 15:35:43 Error: [Symfony\Component\Console\Exception\CommandNotFoundException] Command "update" is not defined. in C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Application.php on line 579
+Stack Trace:
+#0 C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Application.php(204): Symfony\Component\Console\Application->find('update')
+#1 C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Application.php(130): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(101): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\Shell.php(472): Migrations\Shell\MigrationsShell->main('migrations', 'update')
+#4 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(156): Cake\Console\Shell->runCommand(Array, true, Array)
+#5 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(230): Migrations\Shell\MigrationsShell->runCommand(Array, true, Array)
+#6 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#7 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#8 C:\xampp\htdocs\cakeblog\blog\bin\cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#9 {main}
+
+
+2017-06-08 16:10:13 Error: [PDOException] SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'articles' already exists in C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Db\Adapter\PdoAdapter.php on line 338
+Stack Trace:
+#0 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Db\Adapter\PdoAdapter.php(338): PDO->exec('CREATE TABLE `a...')
+#1 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Db\Adapter\MysqlAdapter.php(305): Phinx\Db\Adapter\PdoAdapter->execute('CREATE TABLE `a...')
+#2 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\CakeAdapter.php(423): Phinx\Db\Adapter\MysqlAdapter->createTable(Object(Migrations\Table))
+#3 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Db\Table.php(611): Migrations\CakeAdapter->createTable(Object(Migrations\Table))
+#4 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\Table.php(69): Phinx\Db\Table->create()
+#5 C:\xampp\htdocs\cakeblog\blog\config\Migrations\20170608070311_CreateArticles.php(43): Migrations\Table->create()
+#6 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Migration\Manager\Environment.php(120): CreateArticles->change()
+#7 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Migration\Manager.php(327): Phinx\Migration\Manager\Environment->executeMigration(Object(CreateArticles), 'up')
+#8 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Migration\Manager.php(303): Phinx\Migration\Manager->executeMigration('default', Object(CreateArticles), 'up')
+#9 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Console\Command\Migrate.php(113): Phinx\Migration\Manager->migrate('default', '20170608070817')
+#10 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\ConfigurationTrait.php(165): Phinx\Console\Command\Migrate->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#11 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\Command\Migrate.php(64): Migrations\Command\Migrate->parentExecute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Command\Command.php(264): Migrations\Command\Migrate->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Application.php(869): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Application.php(223): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Migrate), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Application.php(130): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(101): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\Shell.php(472): Migrations\Shell\MigrationsShell->main('migrations', 'migrate')
+#18 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(156): Cake\Console\Shell->runCommand(Array, true, Array)
+#19 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(230): Migrations\Shell\MigrationsShell->runCommand(Array, true, Array)
+#20 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#21 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#22 C:\xampp\htdocs\cakeblog\blog\bin\cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#23 {main}
+
+
+2017-06-08 16:28:10 Error: [PDOException] SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'comments' already exists in C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Db\Adapter\PdoAdapter.php on line 338
+Stack Trace:
+#0 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Db\Adapter\PdoAdapter.php(338): PDO->exec('CREATE TABLE `c...')
+#1 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Db\Adapter\MysqlAdapter.php(305): Phinx\Db\Adapter\PdoAdapter->execute('CREATE TABLE `c...')
+#2 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\CakeAdapter.php(423): Phinx\Db\Adapter\MysqlAdapter->createTable(Object(Migrations\Table))
+#3 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Db\Table.php(611): Migrations\CakeAdapter->createTable(Object(Migrations\Table))
+#4 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\Table.php(69): Phinx\Db\Table->create()
+#5 C:\xampp\htdocs\cakeblog\blog\config\Migrations\20170608070624_CreateComments.php(43): Migrations\Table->create()
+#6 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Migration\Manager\Environment.php(120): CreateComments->change()
+#7 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Migration\Manager.php(327): Phinx\Migration\Manager\Environment->executeMigration(Object(CreateComments), 'up')
+#8 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Migration\Manager.php(303): Phinx\Migration\Manager->executeMigration('default', Object(CreateComments), 'up')
+#9 C:\xampp\htdocs\cakeblog\blog\vendor\robmorgan\phinx\src\Phinx\Console\Command\Migrate.php(113): Phinx\Migration\Manager->migrate('default', '20170608070817')
+#10 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\ConfigurationTrait.php(165): Phinx\Console\Command\Migrate->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#11 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\Command\Migrate.php(64): Migrations\Command\Migrate->parentExecute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Command\Command.php(264): Migrations\Command\Migrate->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Application.php(869): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Application.php(223): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Migrate), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 C:\xampp\htdocs\cakeblog\blog\vendor\symfony\console\Application.php(130): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(101): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\Shell.php(472): Migrations\Shell\MigrationsShell->main('migrations', 'migrate')
+#18 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(156): Cake\Console\Shell->runCommand(Array, true, Array)
+#19 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(230): Migrations\Shell\MigrationsShell->runCommand(Array, true, Array)
+#20 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#21 C:\xampp\htdocs\cakeblog\blog\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#22 C:\xampp\htdocs\cakeblog\blog\bin\cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#23 {main}
+
+
