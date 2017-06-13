@@ -4,7 +4,6 @@
 */
 ?>
 <div class="articles view large-9 medium-8 columns content">
-    <h3><?= __('Articles Details') ?></h3>
     <article class="vertical-table">
         <div>
             <span><?= h($article->title) ?></span>
@@ -18,8 +17,6 @@
             <?= $this->Text->autoParagraph(h($article->body)); ?>
         </div>
     </article>
-
-
 
     <h4><?= __('Related Comments') ?></h4>
     <article class="related">
