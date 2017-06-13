@@ -6,7 +6,7 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('MENU') ?></li>
-        <li><?= $this->Html->link(__('New Article'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('New Article'), ['action' => 'edit']) ?></li>
         <!-- <li><?= $this->Html->link(__('List Pictures'), ['controller' => 'Pictures', 'action' => 'index']) ?></li> -->
         <!-- <li><?= $this->Html->link(__('New Picture'), ['controller' => 'Pictures', 'action' => 'add']) ?></li> -->
         <!-- <li><?= $this->Html->link(__('List Comments'), ['controller' => 'Comments', 'action' => 'index']) ?></li> -->
@@ -30,12 +30,11 @@
             <?php foreach ($articles as $article): ?>
             <tr>
                 <td><?= $this->Number->format($article->id) ?></td>
-                <!-- <td><?= h($article->created) ?></td> -->
                 <td><?= h($article->title) ?></td>
                 <td><?= h($article->modified) ?></td>
+                <!-- <td><?= h($article->created) ?></td> -->
                 <!-- <td><?= $this->Number->format($article->picture_id) ?></td> -->
                 <td class="actions">
-                    <!-- <?= $this->Html->link(__('View'), ['action' => 'view', $article->id]) ?> -->
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $article->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $article->id], ['confirm' => __('Are you sure you want to delete # {0}?', $article->id)]) ?>
                 </td>

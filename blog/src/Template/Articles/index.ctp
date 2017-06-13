@@ -10,15 +10,16 @@
         <?php foreach ($articles as $article): ?>
             <article>
                 <div>
-                    <span align="left"><?= h($article->title) ?></span>
+                    <span align="left"><?= $this->Html->Link(__( h($article->title) ), ['action' => 'view', $article->id]) ?></span>
                     <span align="right"><?= h($article->modified) ?></span>
                 </div>
                 <div>
-                    <span align="left"></span>
+                    <span align="left"><img src="https://placehold.jp/150x150.png" alt="sample"></span>
                     <span align="right"><?= mb_strimwidth(h($article->body), 0, 50, "..."); ?></span>
                 </div>
             </article>
         <?php endforeach; ?>
+
     <div class="paginator">
         <ul class="pagination">
             <?= $this->Paginator->first('<< ' . __('first')) ?>
