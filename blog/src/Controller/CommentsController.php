@@ -57,6 +57,8 @@ class CommentsController extends AppController
         }
         $this->set(compact('comment'));
         $this->set('_serialize', ['comment']);
+
+        $this->set('pagename', 'コメントの編集');
     }
 
     /**

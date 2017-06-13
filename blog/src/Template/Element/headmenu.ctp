@@ -1,0 +1,20 @@
+
+<!-- header menu -->
+<nav class="top-bar expanded" data-topbar role="navigation">
+    <ul class="title-area large-3 medium-4 columns">
+        <li class="name">
+            <h1><?= $this->Html->Link(__("TOP"), ['controller' => 'Articles' ,'action' => 'index']) ?></h1>
+        </li>
+    </ul>
+    <div class="top-bar-section">
+        <h1 class="left"><?= $pagename ?></h1>
+        <ul class="right">
+        <?php if( is_null($auth) ): ?>
+            <li><?= $this->Html->Link(__('Login'), ['controller' => 'Users' ,'action' => 'login']) ?></li>
+        <?php else: ?>
+            <li><?= $this->Html->Link(__("Manage"), ['controller' => 'Manage' ,'action' => 'index']) ?></li>
+            <li><?= $this->Html->Link(__('Logout'), ['controller' => 'Users' ,'action' => 'logout']) ?></li>
+        <?php endif; ?>
+        </ul>
+    </div>
+</nav>

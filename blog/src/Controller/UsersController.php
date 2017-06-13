@@ -16,30 +16,22 @@ class UsersController extends AppController
         $this->Auth->allow(['add', 'logout']);
     }
     public function login()
-      {
-          if ($this->request->is('post')) {
-              $user = $this->Auth->identify();
-              if ($user) {
-                  $this->Auth->setUser($user);
-                  return $this->redirect($this->Auth->redirectUrl());
-              }
-              $this->Flash->error(__('Invalid username or password, try again'));
-          }
-      }
+    {
+      if ($this->request->is('post')) {
+        $user = $this->Auth->identify();
+        if ($user) {
+            $this->Auth->setUser($user);
+            return $this->redirect($this->Auth->redirectUrl());
+        }
+            $this->Flash->error(__('Invalid username or password, try again'));
+        }
 
-      public function logout()
-      {
-          return $this->redirect($this->Auth->logout());
-      }
-     public function index()
-     {
-        $this->set('users', $this->Users->find('all'));
+        $this->set('pagename', 'Login');
     }
 
-    public function view($id)
+    public function logout()
     {
-        $user = $this->Users->get($id);
-        $this->set(compact('user'));
+        return $this->redirect($this->Auth->logout());
     }
 
     public function add()

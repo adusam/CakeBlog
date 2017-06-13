@@ -30,7 +30,6 @@ class ManageController extends AppController
        }
        else
        {
-
            //ログイン状態
        }
 */
@@ -51,23 +50,8 @@ class ManageController extends AppController
 
         $this->set(compact('articles'));
         $this->set('_serialize', ['articles']);
-    }
 
-    /**
-     * View method
-     *
-     * @param string|null $id Article id.
-     * @return \Cake\Http\Response|null
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $article = $this->Articles->get($id, [
-            'contain' => ['Pictures', 'Comments']
-        ]);
-
-        $this->set('article', $article);
-        $this->set('_serialize', ['article']);
+        $this->set('pagename', '管理画面');
     }
 
     /**
@@ -97,6 +81,8 @@ class ManageController extends AppController
         $pictures = $this->Articles->Pictures->find('list', ['limit' => 200]);
         $this->set(compact('article', 'pictures'));
         $this->set('_serialize', ['article']);
+
+        $this->set('pagename', '記事追加/編集');
     }
 
     /**
