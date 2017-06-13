@@ -28,8 +28,9 @@ $cakeDescription = 'Group 1 Blog';
 
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
-    <?= $this->Html->css('headmenu.css') ?>
 
+    <?= $this->Html->css('headmenu.css') ?>
+    <?= $this->Html->css( $this->name.'.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
