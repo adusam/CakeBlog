@@ -4,18 +4,18 @@
   */
 ?>
 
-<div class="articles index large-9 medium-8 columns content">
+<div class="articles">
     <h3><?= __('TOP') ?></h3>
 
         <?php foreach ($articles as $article): ?>
             <article>
-                <div>
-                    <span align="left"><?= $this->Html->Link(__( h($article->title) ), ['action' => 'view', $article->id]) ?></span>
-                    <span align="right"><?= h($article->modified) ?></span>
+                <div class = 'text_title'>
+                    <span align = "left"><?= $this->Html->Link(__( h($article->title) ), ['action' => 'view', $article->id]) ?></span>
+                    <span class = "modified" align = "right"><?= h($article->modified) ?></span>
                 </div>
                 <div>
-                    <span align="left"><img src="https://placehold.jp/150x150.png" alt="sample"></span>
-                    <span align="right"><?= mb_strimwidth(h($article->body), 0, 50, "..."); ?></span>
+                    <span class = 'photo' align = "left"><img src="https://placehold.jp/150x150.png" alt="sample"></span>
+                    <span class = 'text' align = "right"><?= mb_strimwidth(h($article->body), 0, 50, "..."); ?></span>
                 </div>
             </article>
         <?php endforeach; ?>
