@@ -47,7 +47,7 @@
         </div>
         <div>
             <span scope="row"><?= __('body') ?></span>
-            <input type = “text” name =“body/“><br/>
+            <textarea name =“body“></textarea>
         </div>
         <div>
             <span scope="row"><?= __('Password') ?></span>
