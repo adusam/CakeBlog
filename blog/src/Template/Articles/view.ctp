@@ -35,12 +35,9 @@
         <?php endforeach; ?>
     </article>
 
-
-<!-- <?=var_dump($article->comments) ?> -->
     <div>
-        <?= $this->Form->create($article->comments, [
+        <?= $this->Form->create($new_comment, [
             'url' => ['controller' => 'Comments', 'action' => 'add'],
-            'type' => 'post'
             ]) ?>
         <fieldset>
             <legend><?= __('コメント投稿') ?></legend>

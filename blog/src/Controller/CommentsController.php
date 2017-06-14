@@ -44,18 +44,31 @@ class CommentsController extends AppController
      */
     public function edit($id = null)
     {
+        if ($id === null) {
+            return $this->redirect(['controller' => 'Articles', 'action' => 'index']);
+        }
+
         $comment = $this->Comments->get($id, [
             'contain' => []
         ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $comment = $this->Comments->patchEntity($comment, $this->request->getData());
-            if ($this->Comments->save($comment)) {
-                $this->Flash->success(__('The comment has been saved.'));
+        var_dump($comment->password);
+        var_dump($this->request->getData('Post.password'));
 
-                return $this->redirect(['action' => 'index']);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            if( !empty($this->request->getData('Post.password')) || $this->request->getData('Post.password') == $comment->password){
+                $mod_comment = $this->Comments->patchEntity($comment, $this->request->getData());
+                if ($this->Comments->save($mod_comment)) {
+                    $this->Flash->success(__('The comment has been saved.'));
+
+                    return $this->redirect(['controller' => 'Articles', 'action' => 'view', $mod_comment->article_id]);
+                } else {
+                    $this->Flash->error(__('The comment could not be saved. Please, try again.'));
+                }
+            } else {
+                $this->Flash->error(__('password is wrong or not set'));
             }
-            $this->Flash->error(__('The comment could not be saved. Please, try again.'));
         }
+        $comment->password = '';
         $this->set(compact('comment'));
         $this->set('_serialize', ['comment']);
 

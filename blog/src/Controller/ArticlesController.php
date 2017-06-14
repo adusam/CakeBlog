@@ -4,6 +4,8 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\Event\Event;
 
+use App\Model\Entity\Comment;
+
 /**
  * Articles Controller
  *
@@ -55,6 +57,11 @@ class ArticlesController extends AppController
         $this->set('_serialize', ['article']);
 
         $this->set('pagename', '記事詳細');
+
+        // $new_comment = new Comment();
+        $this->set('new_comment', new Comment());
+        $this->set('_serialize', ['new_comment']);
+
     }
 
     public function isAuthorized($user)

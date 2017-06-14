@@ -25,7 +25,6 @@
             echo $this->Form->control('name');
             echo $this->Form->control('body');
             echo $this->Form->control('password');
-            echo $this->Form->control('article_id', ['options' => $articles]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
