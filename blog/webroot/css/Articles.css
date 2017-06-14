@@ -1,5 +1,5 @@
 /*記事*/
-.kiji
+._kiji
 {
     border: 3px solid black;
     margin: 20px 20px 20px 20px;
@@ -12,14 +12,14 @@
 }
 
 /*記事タイトルと日付*/
-.title_modified
+._title_modified
 {
     border-bottom: 3px solid black;
     margin-bottom: 20px;
     padding-left: -20px;
     padding-right: -20px;
 }
-.title
+._title
 {
     overflow: hidden;
     white-space: nowrap;
@@ -30,19 +30,19 @@
 
 }
 /*日付*/
-.modified
+._modified
 {
     float:right;
     font-size: 0.5em;
 }
 /*画像*/
-.photo_text
+._photo_text
 {
     display:flex;
 }
 
 /*本文*/
-.text
+._text
 {
     overflow: hidden;
     white-space: nowrap;
