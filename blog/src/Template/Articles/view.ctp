@@ -20,37 +20,38 @@
 
     <h4><?= __('Related Comments') ?></h4>
     <article class="related">
-        <?php foreach ($article->comments as $comments): ?>
+        <?php foreach ($article->comments as $comment): ?>
+            <?php if(empty($comment->name) || is_null($comment->name)) $comment->name = '匿名'; ?>
             <div>
-                <span><?= h($comments->name) ?></span>
-                <span><?= h($comments->modified) ?></span>
+                <span><?= h($comment->name) ?></span>
+                <span><?= h($comment->modified) ?></span>
             </div>
             <div>
-                <span><?= h($comments->body) ?></span>
+                <span><?= h($comment->body) ?></span>
                 <span class="actions">
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Comments', 'action' => 'edit', $comments->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Comments', 'action' => 'edit', $comment->id]) ?>
                 </span>
             </div>
         <?php endforeach; ?>
     </article>
 
 
-
-    <article>
-        <h4><?= __('Add Comments') ?></h4>
-        <div>
-            <span scope="row"><?= __('Handle Name') ?></span>
-            <input type = “text” name =“handlename/“><br/>
-        </div>
-        <div>
-            <span scope="row"><?= __('body') ?></span>
-            <textarea name =“body“></textarea>
-        </div>
-        <div>
-            <span scope="row"><?= __('Password') ?></span>
-            <input type = “text” name =“password/“><br/>
-        </div>
-
-        <input type = "submit" value ="送信">
-    </article>
+<!-- <?=var_dump($article->comments) ?> -->
+    <div>
+        <?= $this->Form->create($article->comments, [
+            'url' => ['controller' => 'Comments', 'action' => 'add'],
+            'type' => 'post'
+            ]) ?>
+        <fieldset>
+            <legend><?= __('コメント投稿') ?></legend>
+            <?php
+                echo $this->Form->control('name', ['label' => 'お名前']);
+                echo $this->Form->control('body', ['label' => '内容', 'type' => 'textarea']);
+                echo $this->Form->control('password', ['label' => 'パスワード']);
+                echo $this->Form->hidden('article_id', ['value' => $article->id]);
+            ?>
+        </fieldset>
+        <?= $this->Form->button(__('Submit')) ?>
+        <?= $this->Form->end() ?>
+    </div>
 </div>
