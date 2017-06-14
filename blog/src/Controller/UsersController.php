@@ -46,6 +46,8 @@ class UsersController extends AppController
             $this->Flash->error(__('Unable to add the user.'));
         }
         $this->set('user', $user);
+
+        $this->set('pagename', '管理ユーザ作成');
     }
 
 }
