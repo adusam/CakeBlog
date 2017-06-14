@@ -3,37 +3,32 @@
   * @var \App\View\AppView $this
   */
 ?>
+
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('MENU') ?></li>
         <li><?= $this->Html->link(__('New Article'), ['action' => 'edit']) ?></li>
-        <!-- <li><?= $this->Html->link(__('List Pictures'), ['controller' => 'Pictures', 'action' => 'index']) ?></li> -->
-        <!-- <li><?= $this->Html->link(__('New Picture'), ['controller' => 'Pictures', 'action' => 'add']) ?></li> -->
-        <!-- <li><?= $this->Html->link(__('List Comments'), ['controller' => 'Comments', 'action' => 'index']) ?></li> -->
-        <!-- <li><?= $this->Html->link(__('New Comment'), ['controller' => 'Comments', 'action' => 'add']) ?></li> -->
     </ul>
 </nav>
+
+
 <div class="manage index large-9 medium-8 columns content">
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('No.') ?></th>
-                <!-- <th scope="col"><?= $this->Paginator->sort('created') ?></th> -->
                 <th scope="col"><?= $this->Paginator->sort('title') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
-                <!-- <th scope="col"><?= $this->Paginator->sort('picture_id') ?></th> -->
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($articles as $article): ?>
-            <tr>
-                <td><?= $this->Number->format($article->id) ?></td>
-                <td><?= h($article->title) ?></td>
-                <td><?= h($article->modified) ?></td>
-                <!-- <td><?= h($article->created) ?></td> -->
-                <!-- <td><?= $this->Number->format($article->picture_id) ?></td> -->
-                <td class="actions">
+            <tr class = 'kiji'>
+                <td class = 'article_id' align = "left"><?= $this->Number->format($article->id) ?></td>
+                <td class = 'article_title'><?= h($article->title) ?></td>
+                <td class = 'article_modified'><?= h($article->modified) ?></td>
+                <td class="actions" align = "right">
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $article->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $article->id], ['confirm' => __('Are you sure you want to delete # {0}?', $article->id)]) ?>
                 </td>

@@ -1,0 +1,27 @@
+/*記事*/
+.kiji
+{
+    border: 3px solid black;
+    margin: 20px 20px 20px 20px;
+    font-size: 2.5em;
+    padding: 20px 20px 20px 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+/*no*/
+.article_id
+{
+
+}
+
+/*タイトル*/
+.article_title
+{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    /*width: 100px;*/
+    /*display: inline-block;*/
+    margin-right: -40px;
+}

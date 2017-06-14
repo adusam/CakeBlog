@@ -18,6 +18,15 @@ article
     border-bottom: 3px solid black;
     margin-bottom: 20px;
 }
+.article_title
+{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 600px;
+    display: inline-block;
+    margin-right: -40px;
+}
 
 /*日付*/
 .modified
