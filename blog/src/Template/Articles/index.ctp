@@ -5,7 +5,7 @@
 ?>
 
 <div class="articles">
-    <h3><?= __('TOP') ?></h3>
+    <!-- <h3><?= __('TOP') ?></h3> -->
 
         <?php foreach ($articles as $article): ?>
             <article class = 'kiji'>
