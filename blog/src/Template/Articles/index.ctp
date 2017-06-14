@@ -8,12 +8,12 @@
     <h3><?= __('TOP') ?></h3>
 
         <?php foreach ($articles as $article): ?>
-            <article>
-                <div class = 'text_title'>
-                    <span align = "left"><?= $this->Html->Link(__( h($article->title) ), ['action' => 'view', $article->id]) ?></span>
+            <article class = 'kiji'>
+                <div class = 'title_modified'>
+                    <span class = 'title' align = "left"><?= $this->Html->Link(__( h($article->title) ), ['action' => 'view', $article->id]) ?></span>
                     <span class = "modified" align = "right"><?= h($article->modified) ?></span>
                 </div>
-                <div>
+                <div class = 'photo_text'>
                     <span class = 'photo' align = "left"><img src="https://placehold.jp/150x150.png" alt="sample"></span>
                     <span class = 'text' align = "right"><?= mb_strimwidth(h($article->body), 0, 50, "..."); ?></span>
                 </div>
