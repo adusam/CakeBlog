@@ -18,11 +18,7 @@
     padding-left: -20px;
     padding-right: -20px;
 }
-<<<<<<< HEAD
-._title
-=======
 .article_title
->>>>>>> kodama
 {
     overflow: hidden;
     white-space: nowrap;
@@ -33,31 +29,20 @@
 
 }
 /*日付*/
-<<<<<<< HEAD
-._modified
-=======
 .article_modified
->>>>>>> kodama
 {
     float:right;
     font-size: 0.5em;
 }
 /*画像*/
-<<<<<<< HEAD
-._photo_text
-=======
 .pictuer_body
->>>>>>> kodama
 {
     display:flex;
 }
 
 /*本文*/
-<<<<<<< HEAD
-._text
-=======
 .article_body
->>>>>>> kodama
+
 {
     overflow: hidden;
     white-space: nowrap;
