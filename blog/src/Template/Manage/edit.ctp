@@ -14,8 +14,9 @@
 
         ?>
     </fieldset>
-    
+
     <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->button(__('Cansel'),['type' => 'button', 'onclick' => "location.href='./index'"]) ?>
+    <?php $url = $this->Url->build(['action' => 'index']) ?>
+    <?= $this->Form->button(__('Cansel'),['type' => 'button', 'onclick' => "location.href='$url'"]) ?>
     <?= $this->Form->end() ?>
 </div>

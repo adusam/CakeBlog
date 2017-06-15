@@ -20,13 +20,14 @@
 <div class="comments form large-9 medium-8 columns content">
     <?= $this->Form->create($comment) ?>
     <fieldset>
-        <legend><?= __('Edit Comment') ?></legend>
         <?php
             echo $this->Form->control('name');
             echo $this->Form->control('body');
             echo $this->Form->control('password');
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('SUBMIT')) ?>
+    <?php $url = $this->Url->build(['controller' => 'Articles' ,'action' => 'view', $comment->article_id]) ?>
+    <?= $this->Form->button(__('CANCEL'), ['type' => 'button', 'onclick' => "location.href='$url'"]) ?>
     <?= $this->Form->end() ?>
 </div>
