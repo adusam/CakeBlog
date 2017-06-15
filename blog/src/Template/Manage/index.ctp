@@ -16,19 +16,19 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('No.') ?></th>
+                <th class='h_id' scope="col"><?= $this->Paginator->sort('No.') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('title') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
+                <th class='h_action' scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($articles as $article): ?>
             <tr class = 'kiji'>
-                <td class = 'kiji_id' align = "left"><?= $this->Number->format($article->id) ?></td>
-                <td class = 'kiji_title'><?= h($article->title) ?></td>
-                <td class = 'kiji_modified'><?= h($article->modified) ?></td>
-                <td class="actions" align = "right">
+                <td class='kiji_id' align = "left"><?= $this->Number->format($article->id) ?></td>
+                <td class='kiji_title'><?= h($article->title) ?></td>
+                <td class='kiji_modified'><?= h($article->modified) ?></td>
+                <td class='kiji_actions' align = "right">
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $article->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $article->id], ['confirm' => __('Are you sure you want to delete # {0}?', $article->id)]) ?>
                 </td>
