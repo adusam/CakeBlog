@@ -10,8 +10,11 @@
             echo $this->Form->control('title');
             echo $this->Form->control('body');
             echo $this->Form->control('picture_id');
+            echo $this->Form->file('pictuer_path');
+
         ?>
     </fieldset>
+    
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->button(__('Cansel'),['type' => 'button', 'onclick' => "location.href='./index'"]) ?>
     <?= $this->Form->end() ?>
