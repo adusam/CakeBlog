@@ -1,3 +1,15 @@
+/*テーブルヘッド*/
+.h_id
+{
+    table-layout: fixed;
+    width: 10%;
+}
+.h_action
+{
+    table-layout: fixed;
+    width: 15%;
+}
+
 /*記事*/
 .kiji
 {
@@ -11,10 +23,11 @@
 }
 /*no*/
 .kiji_id {
+    table-layout: fixed;
     display: inline-block;
     width: 10%;
-}
 
+}
 /*タイトル*/
 .kiji_title
 {
@@ -24,4 +37,17 @@
     /*width: 100px;*/
     /*display: inline-block;*/
     margin-right: -40px;
+}
+/*投稿日時*/
+.kiji_modified
+{
+
+}
+/*編集・削除ボタン*/
+.kiji_actions
+{
+    table-layout: fixed;
+    display: inline-block;
+    width: auto;
+
 }
