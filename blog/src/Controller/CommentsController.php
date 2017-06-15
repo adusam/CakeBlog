@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Auth\DefaultPasswordHasher;
 
 /**
  * Comments Controller
@@ -12,7 +13,6 @@ use App\Controller\AppController;
  */
 class CommentsController extends AppController
 {
-
     /**
      * Add method
      *
@@ -23,6 +23,11 @@ class CommentsController extends AppController
         $this->autoRender = false;
         $comment = $this->Comments->newEntity();
         if ($this->request->is('post')) {
+
+            // hash password
+            $hasher = new DefaultPasswordHasher();
+            $this->request->data['password'] = $hasher->hash($this->request->data['password']);
+
             $comment = $this->Comments->patchEntity($comment, $this->request->getData());
             if ($this->Comments->save($comment)) {
                 $this->Flash->success(__('The comment has been saved.'));
@@ -51,12 +56,11 @@ class CommentsController extends AppController
         $comment = $this->Comments->get($id, [
             'contain' => []
         ]);
-        var_dump($comment->password);
-        var_dump($this->request->getData('Post.password'));
 
         if ($this->request->is(['patch', 'post', 'put'])) {
-            if( !empty($this->request->getData('Post.password')) || $this->request->getData('Post.password') == $comment->password){
-                $mod_comment = $this->Comments->patchEntity($comment, $this->request->getData());
+            $hasher = new DefaultPasswordHasher();
+            if( !empty($comment->password) || $hasher->check($this->request->data['password'], $comment->password)){
+                $mod_comment = $this->Comments->patchEntity($comment, $this->request->getData(), ['fieldList' => ['name', 'body', 'modified']]);
                 if ($this->Comments->save($mod_comment)) {
                     $this->Flash->success(__('The comment has been saved.'));
 
