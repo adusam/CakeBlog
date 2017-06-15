@@ -3,20 +3,20 @@
 {
     border: 3px solid black;
     margin: 20px 20px 20px 20px;
-    font-size: 2.5em;
     padding: 20px 20px 20px 20px;
     overflow: hidden;
     white-space: nowrap;
+    width: 100%;
     text-overflow: ellipsis;
 }
 /*no*/
-.article_id
-{
-
+.kiji_id {
+    display: inline-block;
+    width: 10%;
 }
 
 /*タイトル*/
-.article_title
+.kiji_title
 {
     overflow: hidden;
     white-space: nowrap;
