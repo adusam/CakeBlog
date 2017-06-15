@@ -59,7 +59,7 @@ class CommentsController extends AppController
 
         if ($this->request->is(['patch', 'post', 'put'])) {
             $hasher = new DefaultPasswordHasher();
-            if( !empty($comment->password) || $hasher->check($this->request->data['password'], $comment->password)){
+            if( !empty($comment->password) && $hasher->check($this->request->data['password'], $comment->password)){
                 $mod_comment = $this->Comments->patchEntity($comment, $this->request->getData(), ['fieldList' => ['name', 'body', 'modified']]);
                 if ($this->Comments->save($mod_comment)) {
                     $this->Flash->success(__('The comment has been saved.'));
@@ -88,14 +88,26 @@ class CommentsController extends AppController
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
+        // $this->request->allowMethod(['post', 'delete']);
         $comment = $this->Comments->get($id);
-        if ($this->Comments->delete($comment)) {
-            $this->Flash->success(__('The comment has been deleted.'));
-        } else {
-            $this->Flash->error(__('The comment could not be deleted. Please, try again.'));
+        $hasher = new DefaultPasswordHasher();
+        // var_dump($this->request->data['password']);
+        // var_dump($comment->password);
+        // return;
+        if( isset($comment->password) && !empty($comment->password)
+        && isset($this->request->data['password'])
+        && $hasher->check($this->request->data['password'], $comment->password))
+        {
+            if ($this->Comments->delete($comment)) {
+                $this->Flash->success(__('The comment has been deleted.'));
+            } else {
+                $this->Flash->error(__('The comment could not be deleted. Please, try again.'));
+            }
         }
-
-        return $this->redirect(['action' => 'index']);
+        else {
+            $this->Flash->error(__('password is wrong or not set'));
+            return $this->redirect(['controller' => 'Comments', 'action' => 'edit', $comment->id]);
+        }
+        return $this->redirect(['controller' => 'Articles', 'action' => 'view', $comment->article_id]);
     }
 }
