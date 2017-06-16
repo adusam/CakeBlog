@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Auth\DefaultPasswordHasher;
+use Cake\Event\Event;
 
 /**
  * Comments Controller
@@ -13,6 +14,10 @@ use Cake\Auth\DefaultPasswordHasher;
  */
 class CommentsController extends AppController
 {
+    public function beforeFilter(Event $event)
+    {
+        $this->Auth->allow(['add', 'edit', 'delete']);
+    }
     /**
      * Add method
      *
