@@ -9,8 +9,10 @@
         <?php
             echo $this->Form->control('title');
             echo $this->Form->control('body');
-            echo $this->Form->control('picture_id');
-            echo $this->Form->file('pictuer_path');
+            //echo $this->Form->control('picture_id');
+            //echo $this->Form->file('pictuer_path', ['type' => 'file', 'label' => 'pictuer']);
+            echo $this->Form->create('Pictuer', array('enctype' => 'multipart/form-data'));
+            echo $this->Form->file('pictuer');
 
         ?>
     </fieldset>

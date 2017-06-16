@@ -3,7 +3,9 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\ORM\TableRegistry;
-
+use Cake\Filesystem\Folder;
+use Cake\Filesystem\File;
+use RuntimeException;
 
 /**
  * Manage Controller
@@ -83,8 +85,29 @@ class ManageController extends AppController
         $this->set('_serialize', ['article']);
 
         $this->set('pagename', '記事追加/編集');
-    }
 
+
+
+
+
+
+        
+            if (!empty($this->request->data)) {
+                $data = array(
+                    'Pictuer' => array(
+                        'filename' => $this->request->data['Pictuer']['pictuer']['name'],
+                        'type' => $this->request->data['Pictuer']['pictuer']['type'],
+                        'contents' => file_get_contents($this->request->data['Pictuer']['pictuer']['tmp_name']),
+                    )
+                );
+                if ($this->Pictuer->save($data)) {
+                    $this->Session->setFlash('アップロードしました');
+                } else {
+                    $this->Session->setFlash('アップロードできませんでした');
+                }
+            }
+
+    }
     /**
      * Delete method
      *
@@ -103,5 +126,13 @@ class ManageController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function contents($id)
+    {
+        $data = $this->PictuerDatas->get($id);
+        $this->autoRender = false;
+        $this->respons->type('image/jpeg');
+        $this->respons->body(stream_get_contents($data->thumbnail));
     }
 }
