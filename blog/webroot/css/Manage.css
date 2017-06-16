@@ -1,53 +1,51 @@
-/*テーブルヘッド*/
-.h_id
-{
+table tbody tr td, table thead tr th {
+    /*display: table-cell;*/
     table-layout: fixed;
-    width: 10%;
 }
-.h_action
-{
-    table-layout: fixed;
-    width: 15%;
+
+
+/*テーブルヘッド*/
+.thead_id {
+    width: 60px;
+    /*text-align: center;*/
+}
+.thead_modified {
+    width: 140px;
+}
+.thead_action {
+    width: 90px;
 }
 
 /*記事*/
-.kiji
-{
-    border: 3px solid black;
-    margin: 20px 20px 20px 20px;
-    padding: 20px 20px 20px 20px;
-    overflow: hidden;
-    white-space: nowrap;
+.manage_table {
+    table-layout: auto;
+    border-collapse: separate;
+    border-spacing: 2px;
+}
+
+.kiji, .kiji_id, .kiji_title, .kiji_modified, .kiji_actions {
+    border-bottom: 1px solid #ddd;
+}
+
+.kiji {
     width: 100%;
-    text-overflow: ellipsis;
 }
 /*no*/
 .kiji_id {
-    table-layout: fixed;
-    display: inline-block;
-    width: 10%;
-
+    text-align: right;
+    border-right: 2px dotted #ddd;
 }
 /*タイトル*/
-.kiji_title
-{
-    overflow: hidden;
+.kiji_title {
+    /*overflow: hidden;*/
     white-space: nowrap;
     text-overflow: ellipsis;
-    /*width: 100px;*/
-    /*display: inline-block;*/
-    margin-right: -40px;
 }
 /*投稿日時*/
-.kiji_modified
-{
+.kiji_modified {
 
 }
 /*編集・削除ボタン*/
-.kiji_actions
-{
-    table-layout: fixed;
-    display: inline-block;
-    width: auto;
+.kiji_actions {
 
 }

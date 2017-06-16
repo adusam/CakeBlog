@@ -1,0 +1,6 @@
+.desc::after {
+    content: ' \25b2'
+}
+.asc::after {
+    content: ' \25bc'
+}

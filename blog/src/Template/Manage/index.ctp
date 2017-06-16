@@ -13,13 +13,13 @@
 
 
 <div class="manage index large-9 medium-8 columns content">
-    <table cellpadding="0" cellspacing="0">
+    <table class="manage_table" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th class='h_id' scope="col"><?= $this->Paginator->sort('No.') ?></th>
+                <th class='thead_id' scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('title') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
-                <th class='h_action' scope="col" class="actions"><?= __('Actions') ?></th>
+                <th class="thead_modified" scope="col"><?= $this->Paginator->sort('modified') ?></th>
+                <th class='thead_action' scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
