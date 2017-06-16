@@ -27,7 +27,7 @@
             <tr class = 'kiji'>
                 <td class='kiji_id' align = "left"><?= $this->Number->format($article->id) ?></td>
                 <td class='kiji_title'><?= h($article->title) ?></td>
-                <td class='kiji_modified'><?= h($article->modified) ?></td>
+                <td class='kiji_modified'><?= h($article->modified->format('Y/m/d H:i')) ?></td>
                 <td class='kiji_actions' align = "right">
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $article->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $article->id], ['confirm' => __('Are you sure you want to delete # {0}?', $article->id)]) ?>

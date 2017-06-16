@@ -7,7 +7,7 @@
     <article class="vertical-table">
         <div>
             <span><?= h($article->title) ?></span>
-            <span><?= h($article->modified) ?></span>
+            <span><?= h($article->modified->format('Y/m/d H:i')) ?></span>
         </div>
         <div>
             <span scope="row"><?= __('Picture Id') ?></span>
@@ -24,7 +24,7 @@
             <?php if(empty($comment->name) || is_null($comment->name)) $comment->name = '匿名'; ?>
             <div>
                 <span><?= h($comment->name) ?></span>
-                <span><?= h($comment->modified) ?></span>
+                <span><?= h($comment->modified->format('Y/m/d H:i')) ?></span>
             </div>
             <div>
                 <span><?= h($comment->body) ?></span>
