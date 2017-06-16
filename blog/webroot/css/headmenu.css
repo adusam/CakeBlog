@@ -25,3 +25,8 @@
     line-height: 1.4em;
     margin-top: 8px;
 }
+
+.top-bar .top-bar-section ul li a.header_link {
+    background-color: #01545b;
+    border-right: 1px solid #116d76;
+}

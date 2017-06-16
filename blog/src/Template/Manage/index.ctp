@@ -30,7 +30,10 @@
                 <td class='kiji_modified'><?= h($article->modified->format('Y/m/d H:i')) ?></td>
                 <td class='kiji_actions' align = "right">
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $article->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $article->id], ['confirm' => __('Are you sure you want to delete # {0}?', $article->id)]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $article->id], [
+                        'confirm' => __('Are you sure you want to delete # {0}?', $article->id),
+                        'class' => 'button_delete'
+                        ]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
