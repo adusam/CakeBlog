@@ -11,7 +11,7 @@
             <article class = 'kiji'>
                 <div class = 'title_modified'>
                     <span class = 'article_title' align = "left"><?= $this->Html->Link(__( h($article->title) ), ['action' => 'view', $article->id]) ?></span>
-                    <span class = "article_modified" align = "right"><?= h($article->modified) ?></span>
+                    <span class = "article_modified" align = "right"><?= h($article->modified->format('Y/m/d H:i')) ?></span>
                 </div>
                 <div class = 'pictuer_body'>
                     <span class = 'article_pictuer' align = "left"><img src="https://placehold.jp/150x150.png" alt="sample"></span>
