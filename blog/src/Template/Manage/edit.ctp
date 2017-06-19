@@ -18,7 +18,7 @@
 
     <?= $this->Form->button(__('Submit'),['class' => 'manage_button']) ?>
     <?php $url = $this->Url->build(['action' => 'index']) ?>
-    <?= $this->Form->button(__('Cansel'),['class' => 'manage_button', 'type' => 'button', 'onclick' => "location.href='$url'"]) ?>
+    <?= $this->Form->button(__('Cancel'),['class' => 'manage_button', 'type' => 'button', 'onclick' => "location.href='$url'"]) ?>
     <?= $this->Form->end() ?>
     <?= $this->Form->postLink(
             __('Delete'),
