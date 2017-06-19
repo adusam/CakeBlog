@@ -1,3 +1,11 @@
+/*
+██ ███    ██ ██████  ███████ ██   ██
+██ ████   ██ ██   ██ ██       ██ ██
+██ ██ ██  ██ ██   ██ █████     ███
+██ ██  ██ ██ ██   ██ ██       ██ ██
+██ ██   ████ ██████  ███████ ██   ██
+*/
+
 /*記事*/
 .kiji
 {
@@ -50,4 +58,84 @@
     display: block;
     margin-left: 20px;
     font-size: 0.8em;
+}
+
+
+/*
+██    ██ ██ ███████ ██     ██
+██    ██ ██ ██      ██     ██
+██    ██ ██ █████   ██  █  ██
+ ██  ██  ██ ██      ██ ███ ██
+  ████   ██ ███████  ███ ███
+*/
+.articles.view {
+    /*margin-left: 15% ;*/
+    width: 100%;
+}
+
+.view_article, .view_comment_list, .view_comment_form {
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    padding: 10px 30px;
+    margin-bottom: 30px;
+}
+
+.view_article_date {
+    text-align: right;
+    /*float: right;*/
+        /*margin-top: 20px;*/
+}
+
+.view_article_picture, .view_article_body {
+    text-align: center;
+    margin: 10px;
+}
+
+.view_article_body p {
+}
+
+.articles .view_comment_list h4 {
+    margin: 0;
+}
+
+.view_comment {
+    margin: 10px 10px 20px;
+    /*border: 1px solid #ddd;*/
+}
+.view_comment .comment_head {
+    /*border-top: 1px solid #ddd;*/
+}
+.view_comment .comment_hname {
+    color: #6f6f6f;
+    font-size: 22px;
+    margin-right: 20px;
+}
+.view_comment .comment_date {
+    margin-right: 30px;
+
+}
+.view_comment .comment_body {
+    margin-top: 5px;
+    margin-left: 5px;
+    padding: 5px 0 10px 15px;
+    border: 1px solid #ddd;
+    border-top: none;
+}
+.view_comment .actions a {
+    font-size: 13px;
+    background-color: #01545b;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+.view_comment .actions a:hover {
+    background-color: #308e97;
+}
+
+.view_comment_form fieldset {
+    padding: 0;
+}
+
+.view_comment_form legend {
+    margin-bottom: 20px;
 }
