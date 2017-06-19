@@ -72,42 +72,36 @@ class ManageController extends AppController
                 'contain' => []
             ]);
         }
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $article = $this->Articles->patchEntity($article, $this->request->getData());
+
+            //$pictuer = $this->Pictuers->patchEntity($pictuer, $this->request->getData(), ['associated' => ['Pictuers']]);
+            $tmp = $this->request->data['pictuer_id']['tmp_name'];
+            $filename = date('YmdHis');
+            if(is_uploaded_file($tmp))
+            {
+                $dir = "/xampp/htdocs/CakeBlog/blog/webroot/uploads/pictuers";
+                move_uploaded_file($tmp, $dir . DS . $filename);
+            }
+
             if ($this->Articles->save($article)) {
                 $this->Flash->success(__('The article has been saved.'));
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The article could not be saved. Please, try again.'));
         }
+
+
+
+
         $pictures = $this->Articles->Pictures->find('list', ['limit' => 200]);
         $this->set(compact('article', 'pictures'));
         $this->set('_serialize', ['article']);
-
+        $this->set('_serialize', ['pictuers']);
         $this->set('pagename', '記事追加/編集');
-
-
-
-
-
-
-        
-            if (!empty($this->request->data)) {
-                $data = array(
-                    'Pictuer' => array(
-                        'filename' => $this->request->data['Pictuer']['pictuer']['name'],
-                        'type' => $this->request->data['Pictuer']['pictuer']['type'],
-                        'contents' => file_get_contents($this->request->data['Pictuer']['pictuer']['tmp_name']),
-                    )
-                );
-                if ($this->Pictuer->save($data)) {
-                    $this->Session->setFlash('アップロードしました');
-                } else {
-                    $this->Session->setFlash('アップロードできませんでした');
-                }
-            }
-
     }
+
     /**
      * Delete method
      *
@@ -128,11 +122,4 @@ class ManageController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-    public function contents($id)
-    {
-        $data = $this->PictuerDatas->get($id);
-        $this->autoRender = false;
-        $this->respons->type('image/jpeg');
-        $this->respons->body(stream_get_contents($data->thumbnail));
-    }
 }
