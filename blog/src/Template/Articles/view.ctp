@@ -3,7 +3,7 @@
 * @var \App\View\AppView $this
 */
 ?>
-<div class="articles view large-9 medium-8 columns content">
+<div class="articles view large-10 columns content">
     <article>
         <div class="view_article">
             <div class="clearfix">
