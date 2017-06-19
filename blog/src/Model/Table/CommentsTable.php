@@ -59,11 +59,18 @@ class CommentsTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->allowEmpty('name');
+            ->requirePresence('name', 'create')
+            ->allowEmpty('name')
+            ->add('name', [
+                'length' => [
+                    'rule' => ['maxLength', 20],
+                    'message' => 'name could be 20 caractors or less',
+                ]
+            ]);
 
         $validator
             ->requirePresence('body', 'create')
-            ->notEmpty('body');
+            ->notEmpty('body', 'Fill this field.');
 
         $validator
             ->allowEmpty('password');

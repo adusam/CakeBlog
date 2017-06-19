@@ -3,39 +3,43 @@
 * @var \App\View\AppView $this
 */
 ?>
-<div class="articles view large-9 medium-8 columns content">
-    <article class="vertical-table">
-        <div>
-            <span><?= h($article->title) ?></span>
-            <span><?= h($article->modified) ?></span>
+<div class="articles view large-10 columns content">
+    <article>
+        <div class="view_article">
+            <div class="clearfix">
+                <h2><?= h($article->title) ?></h2>
+                <div class="view_article_date"><?= h($article->modified->format('Y/m/d H:i')) ?></div>
+            </div>
+            <div class="view_article_picture">
+                <span><?= __('Picture Id') ?></span>
+                <span><?= $this->Number->format($article->picture_id) ?></span>
+            </div>
+            <div class="view_article_body">
+                <?= $this->Text->autoParagraph(h($article->body)); ?>
+            </div>
         </div>
-        <div>
-            <span scope="row"><?= __('Picture Id') ?></span>
-            <span><?= $this->Number->format($article->picture_id) ?></span>
-        </div>
-        <div>
-            <?= $this->Text->autoParagraph(h($article->body)); ?>
+
+        <div class="view_comment_list related">
+            <h4><?= __('記事へのコメント') ?></h4>
+            <?php foreach ($article->comments as $comment): ?>
+                <?php if(empty($comment->name) || is_null($comment->name)) $comment->name = '匿名'; ?>
+                <article class="view_comment">
+                    <div class="comment_head clearfix">
+                        <span class="comment_hname"><?= h($comment->name) ?></span>
+                        <span class="actions right">
+                            <?= $this->Html->link(__('Edit'), ['controller' => 'Comments', 'action' => 'edit', $comment->id]) ?>
+                        </span>
+                        <span class="comment_date right"><?= h($comment->modified->format('Y/m/d H:i')) ?></span>
+                    </div>
+                    <div class="comment_body">
+                        <span><?= h($comment->body) ?></span>
+                    </div>
+                </article>
+            <?php endforeach; ?>
         </div>
     </article>
 
-    <h4><?= __('Related Comments') ?></h4>
-    <article class="related">
-        <?php foreach ($article->comments as $comment): ?>
-            <?php if(empty($comment->name) || is_null($comment->name)) $comment->name = '匿名'; ?>
-            <div>
-                <span><?= h($comment->name) ?></span>
-                <span><?= h($comment->modified) ?></span>
-            </div>
-            <div>
-                <span><?= h($comment->body) ?></span>
-                <span class="actions">
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Comments', 'action' => 'edit', $comment->id]) ?>
-                </span>
-            </div>
-        <?php endforeach; ?>
-    </article>
-
-    <div>
+    <div class="view_comment_form clearfix">
         <?= $this->Form->create($new_comment, [
             'url' => ['controller' => 'Comments', 'action' => 'add'],
             ]) ?>

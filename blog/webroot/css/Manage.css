@@ -1,53 +1,98 @@
+/*
+██ ███    ██ ██████  ███████ ██   ██
+██ ████   ██ ██   ██ ██       ██ ██
+██ ██ ██  ██ ██   ██ █████     ███
+██ ██  ██ ██ ██   ██ ██       ██ ██
+██ ██   ████ ██████  ███████ ██   ██
+*/
+
 /*テーブルヘッド*/
-.h_id
-{
-    table-layout: fixed;
-    width: 10%;
+.thead_id {
+    width: 60px;
+    /*text-align: center;*/
 }
-.h_action
-{
-    table-layout: fixed;
-    width: 15%;
+.thead_modified {
+    width: 140px;
+}
+.thead_action {
+    width: 110px;
 }
 
 /*記事*/
-.kiji
-{
-    border: 3px solid black;
-    margin: 20px 20px 20px 20px;
-    padding: 20px 20px 20px 20px;
-    overflow: hidden;
-    white-space: nowrap;
+.manage_table {
+    table-layout: auto;
+    border-collapse: separate;
+    border-spacing: 2px;
+}
+
+.kiji, .kiji_id, .kiji_title, .kiji_modified, .kiji_actions {
+    border-bottom: 1px solid #ddd;
+}
+
+.kiji {
     width: 100%;
-    text-overflow: ellipsis;
 }
 /*no*/
 .kiji_id {
-    table-layout: fixed;
-    display: inline-block;
-    width: 10%;
-
+    text-align: right;
+    border-right: 2px dotted #ddd;
 }
 /*タイトル*/
-.kiji_title
-{
+.kiji_title {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    /*width: 100px;*/
-    /*display: inline-block;*/
-    margin-right: -40px;
 }
 /*投稿日時*/
-.kiji_modified
-{
+.kiji_modified {
 
 }
 /*編集・削除ボタン*/
-.kiji_actions
-{
-    table-layout: fixed;
-    display: inline-block;
-    width: auto;
+.kiji_actions {
+    padding: 10px 5px;
+}
+.kiji_actions a:first-child{
+    margin-right: 10px;
+}
+.kiji_actions a {
+    padding: 5px;
+    /*border: 1px solid #ddd;*/
+    background-color: #116d76;
+    color: #fff;
+    border-radius: 3px;
+}
+.kiji_actions a:hover {
+    background-color: #308e97;
+}
+.kiji_actions a.button_delete:hover {
+    background-color: #d16d76;
+}
 
+
+/*
+███████ ██████  ██ ████████
+██      ██   ██ ██    ██
+█████   ██   ██ ██    ██
+██      ██   ██ ██    ██
+███████ ██████  ██    ██
+*/
+
+.manage_button {
+    margin-left: 30px;
+}
+.manage_button_delete {
+    display: block;
+    width: 260px;
+    text-align: center;
+    margin-left: 30px;
+    padding: 10px 0;
+    background-color: #aaa;
+    color: #fff;
+    transition: all 300ms ease-out;
+}
+
+.manage_button_delete:hover {
+    background-color: #d16d76;
+    color: #fff;
+    transition: all 300ms ease-out;
 }

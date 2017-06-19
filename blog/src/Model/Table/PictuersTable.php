@@ -13,7 +13,7 @@ class PictuersTable extends Table
         parent::initialize($config);
 
         $this->setTable('puctuers');
-        $this->setDisplayField('data');
+        $this->setDisplayFiel('data');
         $this->setPrimaryKey('id');
 
         $this->belongsTo('Articles',[

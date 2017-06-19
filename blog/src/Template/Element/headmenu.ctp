@@ -10,10 +10,22 @@
         <h1 class="left"><?= $pagename ?></h1>
         <ul class="right">
         <?php if( is_null($auth) ): ?>
-            <li><?= $this->Html->Link(__('Login'), ['controller' => 'Users' ,'action' => 'login']) ?></li>
+            <li><?= $this->Html->Link(
+                __('Login'),
+                ['controller' => 'Users' ,'action' => 'login'],
+                ['class' => 'header_link']
+                ) ?></li>
         <?php else: ?>
-            <li><?= $this->Html->Link(__("Manage"), ['controller' => 'Manage' ,'action' => 'index']) ?></li>
-            <li><?= $this->Html->Link(__('Logout'), ['controller' => 'Users' ,'action' => 'logout']) ?></li>
+            <li><?= $this->Html->Link(
+                __("Manage"),
+                ['controller' => 'Manage', 'action' => 'index'],
+                ['class' => 'header_link']
+                ) ?></li>
+            <li><?= $this->Html->Link(
+                __('Logout'),
+                ['controller' => 'Users' ,'action' => 'logout'],
+                ['class' => 'header_link']
+                ) ?></li>
         <?php endif; ?>
         </ul>
     </div>

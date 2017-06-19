@@ -1,0 +1,10 @@
+table tbody tr td, table thead tr th {
+    /*display: table-cell;*/
+    table-layout: fixed;
+}
+.desc::after {
+    content: ' \25b2'
+}
+.asc::after {
+    content: ' \25bc'
+}

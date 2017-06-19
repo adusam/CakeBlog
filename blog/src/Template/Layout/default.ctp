@@ -16,7 +16,7 @@
 $cakeDescription = 'Group 1 Blog';
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,6 +30,7 @@ $cakeDescription = 'Group 1 Blog';
     <?= $this->Html->css('cake.css') ?>
 
     <?= $this->Html->css('headmenu.css') ?>
+    <?= $this->Html->css('base_custom.css') ?>
     <?= $this->Html->css( $this->name.'.css') ?>
 
     <?= $this->fetch('meta') ?>
