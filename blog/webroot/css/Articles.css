@@ -5,59 +5,78 @@
 ██ ██  ██ ██ ██   ██ ██       ██ ██
 ██ ██   ████ ██████  ███████ ██   ██
 */
+.articles.index {
+    float: none;
+    margin: 0 auto;
+    color: #666;
+
+}
+
 
 /*記事*/
 .kiji
 {
-    border: 3px solid black;
-    margin: 20px 20px 20px 20px;
-    font-size: 2.5em;
-    padding: 20px 20px 20px 20px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    margin: 30px 20px;
+    padding: 20px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+.article_contents {
+    display: inline-block;
+    width: 75%;
+    margin-left: 20px;
+}
+
 
 /*記事タイトルと日付*/
 .title_modified
 {
-    border-bottom: 3px solid black;
+    border-bottom: 2px solid #ddd;
     margin-bottom: 20px;
-    padding-left: -20px;
-    padding-right: -20px;
+    padding-left: 20px;
 }
 .article_title
 {
     overflow: hidden;
-    white-space: nowrap;
+    /*white-space: nowrap;*/
     text-overflow: ellipsis;
-    width: 600px;
-    display: inline-block;
-    margin-right: -40px;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    display: block;
+    width: 100%;
+    font-size: 1.8em;
+    line-height: 1.2;
 }
 
 /*日付*/
-.article_modified
-{
-    float:right;
-    font-size: 0.5em;
+.article_modified {
+    display: block;
+    margin-top: -10px;
 }
+
+
+.picture_body {
+    margin: 0 5%;
+    display: flex;
+}
+
 /*画像*/
-.pictuer_body
-{
-    display:flex;
+.article_picture {
+    width: 20%;
 }
 
 /*本文*/
-.article_body
-
-{
+.article_body{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     display: block;
-    margin-left: 20px;
-    font-size: 0.8em;
+    margin-left: 3%;
+    font-size: 1.5em;
 }
 
 
@@ -70,7 +89,10 @@
 */
 .articles.view {
     /*margin-left: 15% ;*/
-    width: 100%;
+    /*width: 100%;*/
+    margin: 0 auto;
+    float: none;
+    /*padding-bottom: 0;*/
 }
 
 .view_article, .view_comment_list, .view_comment_form {
