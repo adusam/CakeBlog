@@ -20,22 +20,8 @@ class ManageController extends AppController
 
     public function initialize()
    {
-
-
        parent::initialize();
        $this->Articles = TableRegistry::get('Articles');
-       /*$user = $this->Auth->user();
-       if(is_null($user))
-       {
-           //ログアウト状態
-           $this->redirect(['controller'=>'Articles', 'action'=>'index']);
-       }
-       else
-       {
-           //ログイン状態
-       }
-*/
-
    }
     /**
      * Index method
@@ -91,9 +77,6 @@ class ManageController extends AppController
             }
             $this->Flash->error(__('The article could not be saved. Please, try again.'));
         }
-
-
-
 
         $pictures = $this->Articles->Pictures->find('list', ['limit' => 200]);
         $this->set(compact('article', 'pictures'));
