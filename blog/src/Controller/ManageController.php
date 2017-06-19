@@ -20,22 +20,8 @@ class ManageController extends AppController
 
     public function initialize()
    {
-
-
        parent::initialize();
        $this->Articles = TableRegistry::get('Articles');
-       /*$user = $this->Auth->user();
-       if(is_null($user))
-       {
-           //ログアウト状態
-           $this->redirect(['controller'=>'Articles', 'action'=>'index']);
-       }
-       else
-       {
-           //ログイン状態
-       }
-*/
-
    }
     /**
      * Index method
@@ -84,28 +70,24 @@ class ManageController extends AppController
         $this->set(compact('article', 'pictures'));
         $this->set('_serialize', ['article']);
 
+        $this->set('id', $id);//delete ボタン判断用
         $this->set('pagename', '記事追加/編集');
 
 
-
-
-
-
-        
-            if (!empty($this->request->data)) {
-                $data = array(
-                    'Pictuer' => array(
-                        'filename' => $this->request->data['Pictuer']['pictuer']['name'],
-                        'type' => $this->request->data['Pictuer']['pictuer']['type'],
-                        'contents' => file_get_contents($this->request->data['Pictuer']['pictuer']['tmp_name']),
-                    )
-                );
-                if ($this->Pictuer->save($data)) {
-                    $this->Session->setFlash('アップロードしました');
-                } else {
-                    $this->Session->setFlash('アップロードできませんでした');
-                }
+        if (!empty($this->request->data)) {
+            $data = array(
+                'Pictuer' => array(
+                    'filename' => $this->request->data['Pictuer']['pictuer']['name'],
+                    'type' => $this->request->data['Pictuer']['pictuer']['type'],
+                    'contents' => file_get_contents($this->request->data['Pictuer']['pictuer']['tmp_name']),
+                )
+            );
+            if ($this->Pictuer->save($data)) {
+                $this->Session->setFlash('アップロードしました');
+            } else {
+                $this->Session->setFlash('アップロードできませんでした');
             }
+        }
 
     }
     /**
