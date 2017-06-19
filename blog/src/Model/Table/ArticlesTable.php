@@ -66,8 +66,8 @@ class ArticlesTable extends Table
             ->notEmpty('title', 'Fill this field.')
             ->add('title', [
                 'length' => [
-                    'rule' => ['maxLength', 50],
-                    'message' => 'Title could be 50 caractors or less',
+                    'rule' => ['maxLength', 20],
+                    'message' => 'Title could be 20 caractors or less',
                 ]
             ]);
 
