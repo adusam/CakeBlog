@@ -82,7 +82,9 @@ class ManageController extends AppController
         $this->set(compact('article', 'pictures'));
         $this->set('_serialize', ['article']);
         $this->set('_serialize', ['pictuers']);
-        $this->set('pagename', '記事追加/編集');
+        $this->set('pagename', '記事追加/編集');//ページタイトル
+        $this->set('id', $id);//delete ボタン判断用
+
     }
 
     /**
