@@ -10,7 +10,7 @@
             echo $this->Form->control('title');
             echo $this->Form->control('body');
             echo $this->Form->create('picture_data', array('enctype' => 'multipart/form-da'));
-            echo $this->Form->control('picture_id', ['type' => 'file', 'label' => 'picture']);
+            echo $this->Form->control('picture_data', ['type' => 'file', 'label' => 'picture']);
         ?>
 
     </fieldset>

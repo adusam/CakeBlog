@@ -33,6 +33,7 @@ class ArticlesController extends AppController
         ];
         $articles = $this->paginate($this->Articles);
 
+
         $this->set(compact('articles'));
         $this->set('_serialize', ['articles']);
 
