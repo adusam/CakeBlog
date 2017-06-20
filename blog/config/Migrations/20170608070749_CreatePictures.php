@@ -13,7 +13,7 @@ class CreatePictures extends AbstractMigration
     public function change()
     {
         $table = $this->table('pictures');
-        $table->addColumn('data', 'blob', [
+        $table->addColumn('data', 'text', [
             'default' => null,
             'null' => false,
         ]);
