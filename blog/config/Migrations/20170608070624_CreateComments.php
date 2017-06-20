@@ -15,7 +15,7 @@ class CreateComments extends AbstractMigration
         $table = $this->table('comments');
         $table->addColumn('name', 'string', [
             'default' => null,
-            'limit' => 50,
+            'limit' => 20,
             'null' => true,
         ]);
         $table->addColumn('body', 'text', [
