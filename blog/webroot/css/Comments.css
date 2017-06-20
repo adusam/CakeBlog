@@ -1,0 +1,55 @@
+/*
+███████ ██████  ██ ████████
+██      ██   ██ ██    ██
+█████   ██   ██ ██    ██
+██      ██   ██ ██    ██
+███████ ██████  ██    ██
+*/
+
+.comments.form {
+    margin: 0 auto;
+}
+.comments.form form {
+    /*flex: auto;*/
+}
+.comment_buttons {
+    display: block;
+}
+.comment_buttons button {
+    display: block;
+    width: 100%;
+    float: none;
+}
+.comment_buttons button:last-child {
+    background-color: #aaa;
+    color: #fff;
+    transition: all 300ms ease-out;
+}
+.comment_buttons button:last-child:hover {
+    background-color: #d16d76;
+    color: #fff;
+    transition: all 300ms ease-out;
+}
+
+@media only screen and (min-width: 40.0625em)
+{
+    .comment_buttons {
+        display: flex;
+        justify-content: flex-start;
+        /*width: 100%;*/
+    }
+
+    .comment_buttons button {
+        width: 20%;
+        margin: 5%;
+    }
+    .comment_buttons button:first-child {
+        margin-left: 3%;
+    }
+    .comment_buttons button:last-child {
+        margin-left: auto;
+        margin-right: 3%;
+    }
+
+
+}

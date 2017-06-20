@@ -30,9 +30,10 @@ class CommentsController extends AppController
         if ($this->request->is('post')) {
 
             // hash password
-            $hasher = new DefaultPasswordHasher();
-            $this->request->data['password'] = $hasher->hash($this->request->data['password']);
-
+            if (!empty($this->request->data['password'])) {
+                $hasher = new DefaultPasswordHasher();
+                $this->request->data['password'] = $hasher->hash($this->request->data['password']);
+            }
             $comment = $this->Comments->patchEntity($comment, $this->request->getData());
             if ($this->Comments->save($comment)) {
                 $this->Flash->success(__('The comment has been saved.'));
@@ -74,7 +75,7 @@ class CommentsController extends AppController
                     $this->Flash->error(__('The comment could not be saved. Please, try again.'));
                 }
             } else {
-                $this->Flash->error(__('password is wrong or not set'));
+                $this->Flash->error(__('password is wrong or did not set'));
             }
         }
         $comment->password = '';
@@ -110,7 +111,7 @@ class CommentsController extends AppController
             }
         }
         else {
-            $this->Flash->error(__('password is wrong or not set'));
+            $this->Flash->error(__('password is wrong or did not set'));
             return $this->redirect(['controller' => 'Comments', 'action' => 'edit', $comment->id]);
         }
         return $this->redirect(['controller' => 'Articles', 'action' => 'view', $comment->article_id]);
