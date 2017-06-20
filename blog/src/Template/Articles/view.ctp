@@ -11,8 +11,17 @@
                 <div class="view_article_date"><?= h($article->modified->format('Y/m/d H:i')) ?></div>
             </div>
             <div class="view_article_picture">
-                <span><?= __('Picture Id') ?></span>
-                <span><?= $this->Number->format($article->picture_id) ?></span>
+                <span>
+                    <?php
+                    if ( is_null($article['picture_id'])) {
+                        $img = "/webroot/uploads/pictures/noimage.jpg";
+                    }
+                    else {
+                        $img = "/webroot/uploads/pictures/" . $article->picture['data'];
+                    }
+                    ?>
+                    <?= $this->Html->image($img) ?>
+                </span>
             </div>
             <div class="view_article_body">
                 <?= $this->Text->autoParagraph(h($article->body)); ?>

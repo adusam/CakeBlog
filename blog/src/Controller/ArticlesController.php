@@ -53,16 +53,11 @@ class ArticlesController extends AppController
         $article = $this->Articles->get($id, [
             'contain' => ['Pictures', 'Comments']
         ]);
-
         $this->set('article', $article);
-        $this->set('_serialize', ['article']);
+        $this->set('new_comment', new Comment());
+        $this->set('_serialize', ['article', 'new_comment']);
 
         $this->set('pagename', '記事詳細');
-
-        // $new_comment = new Comment();
-        $this->set('new_comment', new Comment());
-        $this->set('_serialize', ['new_comment']);
-
     }
 
     public function isAuthorized($user)
