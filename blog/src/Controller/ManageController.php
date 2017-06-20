@@ -65,24 +65,25 @@ class ManageController extends AppController
 
         if ($this->request->is(['patch', 'post', 'put'])) {
             $article = $this->Articles->patchEntity($article, $this->request->getData());
-            $dir = "/xampp/htdocs/CakeBlog/blog/webroot/uploads/pictuers";
-            //$pictuer = $this->Pictuers->patchEntity($pictuer, $this->request->getData(), ['associated' => ['Pictuers']]);
-            $tmp = $this->request->data['pictuer_id']['tmp_name'];
+            $dir = "/xampp/htdocs/CakeBlog/blog/webroot/uploads/pictures";
+            //$picture = $this->pictures->patchEntity($picture, $this->request->getData(), ['associated' => ['pictures']]);
+            var_dump($this->request->data);
+            $tmp = $this->request->data['picture_id']['tmp_name'];
+            return;
 
             $filename = date('Y_m_d_H_i_s');
             $article_pic = $article["id"];//記事ID
 
             if(is_uploaded_file($tmp))
             {
-
                 move_uploaded_file($tmp, $dir . DS . $filename);
             }
             var_dump($article);
-            $file = new File("{$dir}/a");//{$artucle["pictuer_id"]}
+            $file = new File("{$dir}/a");//{$artucle["picture_id"]}
             if ($file->exists()) {
             echo "ok";// ファイルがある時の処理
             }
-            $article["pictuer_id"] = "$filename";
+            $article["picture_id"] = "$filename";
             if ($this->Articles->save($article)) {
                 $this->Flash->success(__('The article has been saved.'));
                 return $this->redirect(['action' => 'index']);
@@ -93,7 +94,7 @@ class ManageController extends AppController
         $pictures = $this->Articles->Pictures->find('list', ['limit' => 200]);
         $this->set(compact('article', 'pictures'));
         $this->set('_serialize', ['article']);
-        $this->set('_serialize', ['pictuers']);
+        $this->set('_serialize', ['pictures']);
         $this->set('pagename', '記事追加/編集');//ページタイトル
         $this->set('id', $id);//delete ボタン判断用
 

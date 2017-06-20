@@ -1,1 +1,1 @@
-<img src="<?= $this->Url->build(["controller" => "PictuerDatas", "action" => "contents"], $PictuerData->id);?>">
+<img src="<?= $this->Url->build(["controller" => "pictureDatas", "action" => "contents"], $pictureData->id);?>">
