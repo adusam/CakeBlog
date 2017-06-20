@@ -6,18 +6,18 @@
 
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('MENU') ?></li>
-        <li><?= $this->Html->link(__('New Article'), ['action' => 'edit']) ?></li>
+        <li class="heading"><?= __('メニュー') ?></li>
+        <li><?= $this->Html->link(__('新規投稿'), ['action' => 'edit']) ?></li>
     </ul>
 </nav>
 <div class="manage index large-9 medium-8 columns content">
     <table class="manage_table" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th class='thead_id' scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('title') ?></th>
-                <th class="thead_modified" scope="col"><?= $this->Paginator->sort('modified') ?></th>
-                <th class='thead_action' scope="col" class="actions"><?= __('Actions') ?></th>
+                <th class='thead_id' scope="col"><?= $this->Paginator->sort('管理番号') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('タイトル') ?></th>
+                <th class="thead_modified" scope="col"><?= $this->Paginator->sort('最新更新日時') ?></th>
+                <th class='thead_action' scope="col" class="actions"><?= __('操作') ?></th>
             </tr>
         </thead>
         <tbody>
@@ -27,8 +27,8 @@
                 <td class='kiji_title'><?= h($article->title) ?></td>
                 <td class='kiji_modified'><?= h($article->modified->format('Y/m/d H:i')) ?></td>
                 <td class='kiji_actions' align = "right">
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $article->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $article->id], [
+                    <?= $this->Html->link(__('編集'), ['action' => 'edit', $article->id]) ?>
+                    <?= $this->Form->postLink(__('削除'), ['action' => 'delete', $article->id], [
                         'confirm' => __('Are you sure you want to delete # {0}?', $article->id),
                         'class' => 'button_delete'
                         ]) ?>

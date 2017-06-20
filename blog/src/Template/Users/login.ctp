@@ -4,10 +4,10 @@
 <?= $this->Flash->render() ?>
 <?= $this->Form->create() ?>
     <fieldset class="large-5 medium-8">
-        <legend><?= __('Please enter your username and password') ?></legend>
-        <?= $this->Form->control('username') ?>
-        <?= $this->Form->control('password') ?>
-        <?= $this->Form->button(__('Login'), ['class' => 'login_button']); ?>
+        <legend><?= __('ユーザーネームとパスワードを入力してください。') ?></legend>
+        <?= $this->Form->control('username' , ['label' => 'ユーザーネーム']) ?>
+        <?= $this->Form->control('password' , ['label' => 'パスワード']) ?>
+        <?= $this->Form->button(__('ログイン'), ['class' => 'login_button']); ?>
     </fieldset>
 <?= $this->Form->end() ?>
 </div>

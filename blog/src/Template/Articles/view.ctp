@@ -36,7 +36,7 @@
                     <div class="comment_head clearfix">
                         <span class="comment_hname"><?= h($comment->name) ?></span>
                         <span class="actions right">
-                            <?= $this->Html->link(__('Edit'), ['controller' => 'Comments', 'action' => 'edit', $comment->id]) ?>
+                            <?= $this->Html->link(__('編集・削除'), ['controller' => 'Comments', 'action' => 'edit', $comment->id]) ?>
                         </span>
                         <span class="comment_date right"><?= h($comment->modified->format('Y/m/d H:i')) ?></span>
                     </div>
@@ -61,7 +61,7 @@
                 echo $this->Form->hidden('article_id', ['value' => $article->id]);
             ?>
         </fieldset>
-        <?= $this->Form->button(__('Submit')) ?>
+        <?= $this->Form->button(__('投稿')) ?>
         <?= $this->Form->end() ?>
     </div>
 </div>
