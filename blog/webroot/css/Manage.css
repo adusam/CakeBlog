@@ -76,23 +76,48 @@
 ██      ██   ██ ██    ██
 ███████ ██████  ██    ██
 */
+.manage_edit {
+    margin: 0 auto;
 
-.manage_button {
-    margin-left: 30px;
+}
+
+.manage_button, .manage_button_delete {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
 }
 .manage_button_delete {
-    display: block;
-    width: 260px;
-    text-align: center;
-    margin-left: 30px;
-    padding: 10px 0;
     background-color: #aaa;
+    text-align: center;
+    line-height: 2;
     color: #fff;
-    transition: all 300ms ease-out;
+    margin-top: 30px;
+    padding: 10px 0;
+}
+.manage_button_delete:focus {
+    color: #fff;
 }
 
-.manage_button_delete:hover {
-    background-color: #d16d76;
-    color: #fff;
-    transition: all 300ms ease-out;
+@media only screen and (min-width: 40.0625em)
+{
+    .manage_button {
+        margin-left: 30px;
+        width: auto;
+        display: inline-block;
+    }
+    .manage_button_delete {
+        /*display: block;*/
+        width: 200px;
+        margin-left: 60%;
+        margin-top: -62px;
+        transition: background-color 300ms ease-out;
+    }
+
+    .manage_button_delete:hover {
+        background-color: #d16d76;
+        color: #fff;
+        transition: background-color 300ms ease-out;
+
+    }
+
 }

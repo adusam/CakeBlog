@@ -3,7 +3,7 @@
   * @var \App\View\AppView $this
   */
 ?>
-    <?= $this->Form->create($article,['type' => 'file']) ?>
+    <?= $this->Form->create($article,['class' => 'manage_edit large-10', 'type' => 'file']) ?>
     <fieldset>
         <?php
 
