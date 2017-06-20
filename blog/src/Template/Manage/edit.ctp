@@ -11,7 +11,11 @@
             echo $this->Form->control('body');
             echo $this->Form->create('picture_data', array('enctype' => 'multipart/form-da'));
             echo $this->Form->control('picture_data', ['type' => 'file', 'label' => 'picture']);
+            if (isset($article->picture['data'])) {
+                echo $this->Html->image("/webroot/uploads/pictures/".$article->picture['data']);
+            }
         ?>
+
 
     </fieldset>
 
