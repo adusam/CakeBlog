@@ -10,15 +10,17 @@
         <div class = "article_modified right"><?= h($article->modified->format('Y/m/d H:i')) ?></div>
         <div class = 'article_title'><?= $this->Html->Link(__( h($article->title) ), ['action' => 'view', $article->id]) ?></div>
         <div class = 'picture_body'>
-            <?php
-            if ( is_null($article['picture_id'])) {
-                $img = "https://placehold.jp/150x150.png";
-            }
-            else {
-                $img = "/webroot/uploads/pictures/" . $article->picture['data'];
-            }
-            ?>
-            <span class = 'article_picture'><?= $this->Html->image("{$img}") ?></span>
+            <span class = 'article_picture'>
+                <?php
+                if ( is_null($article['picture_id'])) {
+                    $img = "/webroot/uploads/pictures/noimage.jpg";
+                }
+                else {
+                    $img = "/webroot/uploads/pictures/" . $article->picture['data'];
+                }
+                ?>
+                <?= $this->Html->image($img) ?>
+            </span>
             <span class = 'article_body'><?= mb_strimwidth(h($article->body), 0, 50, "..."); ?></span>
         </div>
     </article>

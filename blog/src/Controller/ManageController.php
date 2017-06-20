@@ -87,10 +87,8 @@ class ManageController extends AppController
             $this->Flash->error(__('The article could not be saved. Please, try again.'));
         }
 
-        // $pictures = $this->Articles->Pictures->find('list', ['limit' => 200]);
         $this->set(compact('article'));
         $this->set('_serialize', ['article']);
-        // $this->set('_serialize', ['pictures']);
         $this->set('pagename', '記事追加/編集');//ページタイトル
         $this->set('id', $id);//delete ボタン判断用
 
