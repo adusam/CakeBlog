@@ -10,8 +10,8 @@ class UsersTable extends Table
     public function validationDefault(Validator $validator)
     {
         return $validator
-            ->notEmpty('username', 'A username is required')
-            ->notEmpty('password', 'A password is required')
+            ->notEmpty('username', 'ユーザ名を入力してください。')
+            ->notEmpty('password', 'パスワードを入力してください。')
             ->notEmpty('role', 'A role is required')
             ->add('role', 'inList', [
                 'rule' => ['inList', ['admin', 'author']],

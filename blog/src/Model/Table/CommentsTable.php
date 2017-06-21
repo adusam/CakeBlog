@@ -64,13 +64,13 @@ class CommentsTable extends Table
             ->add('name', [
                 'length' => [
                     'rule' => ['maxLength', 20],
-                    'message' => 'name could be 20 caractors or less',
+                    'message' => 'ハンドルネームは20文字以内で入力してください。',
                 ]
             ]);
 
         $validator
             ->requirePresence('body', 'create')
-            ->notEmpty('body', 'Fill this field.');
+            ->notEmpty('body', 'コメント内容が入力されていません。');
 
         $validator
             ->allowEmpty('password');

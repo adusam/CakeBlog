@@ -67,13 +67,13 @@ class ArticlesTable extends Table
             ->add('title', [
                 'length' => [
                     'rule' => ['maxLength', 20],
-                    'message' => 'Title could be 20 caractors or less',
+                    'message' => 'タイトルは20文字以内で入力してください。',
                 ]
             ]);
 
         $validator
             ->requirePresence('body', 'create')
-            ->notEmpty('body', 'Fill this field.');
+            ->notEmpty('body', '本文がありません。');
 
         return $validator;
     }

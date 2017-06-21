@@ -62,7 +62,12 @@
             ?>
             <div class="caution">※PWを設定しない場合、コメントの編集・削除ができません。</div>
         </fieldset>
-        <?= $this->Form->button(__('投稿')) ?>
+        <?= $this->Form->button(__('投稿'), ['onclick' => 'javascript:disableBtn(this);submit(this);']) ?>
         <?= $this->Form->end() ?>
     </div>
 </div>
+<script type="text/javascript">
+    function disableBtn(btn) {
+        btn.disabled = true;
+    }
+</script>
