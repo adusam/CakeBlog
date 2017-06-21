@@ -27,7 +27,7 @@
     <?php
         if ($id !== null) {
             echo $this->Form->postLink(
-                __('Delete'),
+                __('削除'),
                 ['action' => 'delete', $article->id], [
                     'confirm' => __('管理番号:{0} の記事を削除してもよろしいですか？' , $article->id),
                     'class' => 'manage_button_delete',
