@@ -178,3 +178,8 @@
 .view_comment_form legend {
     margin-bottom: 20px;
 }
+
+.caution {
+    font-size: 11px;
+    color: red;
+}

@@ -60,6 +60,7 @@
                 echo $this->Form->control('password', ['label' => 'パスワード']);
                 echo $this->Form->hidden('article_id', ['value' => $article->id]);
             ?>
+            <div class="caution">※PWを設定しない場合、コメントの編集・削除ができません。</div>
         </fieldset>
         <?= $this->Form->button(__('投稿')) ?>
         <?= $this->Form->end() ?>
