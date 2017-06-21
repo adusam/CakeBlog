@@ -9,7 +9,6 @@
 
             echo $this->Form->control('title' , ['label' => 'タイトル']);
             echo $this->Form->control('body' , ['label' => '内容']);
-            echo $this->Form->create('picture_data', array('enctype' => 'multipart/form-da'));
             echo $this->Form->control('picture_id', ['type' => 'file', 'label' => '']);
             if (isset($article->picture['data'])) {
                 echo $this->Html->image("/webroot/uploads/pictures/".$article->picture['data']);
