@@ -29,7 +29,7 @@
                 <td class='kiji_actions' align = "right">
                     <?= $this->Html->link(__('編集'), ['action' => 'edit', $article->id]) ?>
                     <?= $this->Form->postLink(__('削除'), ['action' => 'delete', $article->id], [
-                        'confirm' => __('Are you sure you want to delete # {0}?', $article->id),
+                        'confirm' => __('ID:{0}の記事を削除してもよろしいですか?', $article->id),
                         'class' => 'button_delete'
                         ]) ?>
                 </td>

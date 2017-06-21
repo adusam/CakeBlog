@@ -23,7 +23,7 @@ class UsersController extends AppController
             $this->Auth->setUser($user);
             return $this->redirect($this->Auth->redirectUrl());
         }
-            $this->Flash->error(__('Invalid username or password, try again'));
+            $this->Flash->error(__('ユーザーネームまたはパスワードが間違っています。再度、入力をお願いします。'));
         }
 
         $this->set('pagename', 'ログイン');
@@ -40,10 +40,10 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
+                $this->Flash->success(__('管理者として追加されました。'));
                 return $this->redirect(['action' => 'add']);
             }
-            $this->Flash->error(__('Unable to add the user.'));
+            $this->Flash->error(__('管理者の追加に失敗しました。'));
         }
         $this->set('user', $user);
 

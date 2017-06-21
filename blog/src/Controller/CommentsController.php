@@ -36,9 +36,9 @@ class CommentsController extends AppController
             }
             $comment = $this->Comments->patchEntity($comment, $this->request->getData());
             if ($this->Comments->save($comment)) {
-                $this->Flash->success(__('The comment has been saved.'));
+                $this->Flash->success(__('コメントが投稿されました。'));
             } else {
-                $this->Flash->error(__('The comment could not be saved. Please, try again.'));
+                $this->Flash->error(__('コメント投稿ができませんでした。再度、投稿をお願いします。'));
             }
             return $this->redirect(['controller' => 'Articles', 'action' => 'view', $comment->article_id]);
         } else {
@@ -68,14 +68,14 @@ class CommentsController extends AppController
             if( !empty($comment->password) && $hasher->check($this->request->data['password'], $comment->password)){
                 $mod_comment = $this->Comments->patchEntity($comment, $this->request->getData(), ['fieldList' => ['name', 'body', 'modified']]);
                 if ($this->Comments->save($mod_comment)) {
-                    $this->Flash->success(__('The comment has been saved.'));
+                    $this->Flash->success(__('コメントが投稿されました。.'));
 
                     return $this->redirect(['controller' => 'Articles', 'action' => 'view', $mod_comment->article_id]);
                 } else {
-                    $this->Flash->error(__('The comment could not be saved. Please, try again.'));
+                    $this->Flash->error(__('コメント投稿ができませんでした。再度、投稿をお願いします。'));
                 }
             } else {
-                $this->Flash->error(__('password is wrong or did not set'));
+                $this->Flash->error(__('パスワードが間違っているか、設定されていません。'));
             }
         }
         $comment->password = '';
@@ -105,13 +105,13 @@ class CommentsController extends AppController
         && $hasher->check($this->request->data['password'], $comment->password))
         {
             if ($this->Comments->delete($comment)) {
-                $this->Flash->success(__('The comment has been deleted.'));
+                $this->Flash->success(__('コメントが削除されました。'));
             } else {
-                $this->Flash->error(__('The comment could not be deleted. Please, try again.'));
+                $this->Flash->error(__('コメントの削除ができませんでした。再度、削除をお願いします。'));
             }
         }
         else {
-            $this->Flash->error(__('password is wrong or did not set'));
+            $this->Flash->error(__('パスワードが間違っているか、設定されていません。'));
             return $this->redirect(['controller' => 'Comments', 'action' => 'edit', $comment->id]);
         }
         return $this->redirect(['controller' => 'Articles', 'action' => 'view', $comment->article_id]);
