@@ -78,16 +78,16 @@ class ManageController extends AppController
                         echo "saved\n";
                     }
                     else {
-                        $this->Flash->error(__('The picture could not be saved.'));
+                        $this->Flash->error(__('画像の保存ができませんでした。'));
                     }
                 }
             }
             $article['picture_id'] = $picture['id'];
             if ($this->Articles->save($article)) {
-                $this->Flash->success(__('The article has been saved.'));
+                $this->Flash->success(__('記事が投稿されました。'));
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The article could not be saved. Please, try again.'));
+            $this->Flash->error(__('記事の投稿ができませんでした。再度、投稿をお願いします。'));
         }
 
         $this->set(compact('article'));
@@ -109,9 +109,9 @@ class ManageController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $article = $this->Articles->get($id);
         if ($this->Articles->delete($article)) {
-            $this->Flash->success(__('The article has been deleted.'));
+            $this->Flash->success(__('記事が削除されました。'));
         } else {
-            $this->Flash->error(__('The article could not be deleted. Please, try again.'));
+            $this->Flash->error(__('記事の削除に失敗しました、再度、削除をお願いします。'));
         }
 
         return $this->redirect(['action' => 'index']);
