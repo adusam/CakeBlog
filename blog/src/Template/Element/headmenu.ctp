@@ -17,7 +17,7 @@
                 ) ?></li>
         <?php else: ?>
             <li><?= $this->Html->Link(
-                __("Manage"),
+                __("管理"),
                 ['controller' => 'Manage', 'action' => 'index'],
                 ['class' => 'header_link']
                 ) ?></li>
