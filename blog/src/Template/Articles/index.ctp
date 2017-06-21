@@ -24,7 +24,6 @@
                 <?= $this->Html->image($img) ?>
             </span>
             <span class = 'article_body'>
-                <!-- <?= $this->Text->autoParagraph(h($article->body)); ?> -->
                 <?= $this->Text->autoParagraph(mb_strimwidth(h($article->body), 0, 200, "...")); ?>
             </span>
         </div>

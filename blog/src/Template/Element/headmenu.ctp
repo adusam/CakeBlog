@@ -1,7 +1,7 @@
 
 <!-- header menu -->
 <nav class="top-bar expanded" data-topbar role="navigation">
-    <ul class="title-area large-3 medium-4 columns">
+    <ul class="title-area large-3 medium-3 columns">
         <li class="name">
             <h1><?= $this->Html->Link(__("TOP"), ['controller' => 'Articles' ,'action' => 'index']) ?></h1>
         </li>

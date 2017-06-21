@@ -6,16 +6,8 @@
 ██ ██   ████ ██████  ███████ ██   ██
 */
 
-/*テーブルヘッド*/
-.thead_id {
-    width: 60px;
-    /*text-align: center;*/
-}
-.thead_modified {
-    width: 140px;
-}
-.thead_action {
-    width: 110px;
+.manage.index {
+    padding-top: 10px;
 }
 
 /*記事*/
@@ -24,6 +16,26 @@
     border-collapse: separate;
     border-spacing: 2px;
 }
+.manage_table th {
+    padding: 5px 5px;
+}
+/*テーブルヘッド*/
+.thead_id {
+    width: 45px;
+    /*text-align: center;*/
+}
+.thead_title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.thead_modified {
+    width: 130px;
+}
+.thead_action {
+    width: 100px;
+}
+
 
 .kiji, .kiji_id, .kiji_title, .kiji_modified, .kiji_actions {
     border-bottom: 1px solid #ddd;
@@ -39,8 +51,8 @@
 }
 /*タイトル*/
 .kiji_title {
-    overflow: hidden;
     white-space: nowrap;
+    overflow: hidden;
     text-overflow: ellipsis;
 }
 /*投稿日時*/

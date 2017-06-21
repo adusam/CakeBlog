@@ -4,19 +4,19 @@
   */
 ?>
 
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
+<nav class="large-3 medium-3 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('メニュー') ?></li>
         <li><?= $this->Html->link(__('新規投稿'), ['action' => 'edit']) ?></li>
     </ul>
 </nav>
-<div class="manage index large-9 medium-8 columns content">
+<div class="manage index large-9 medium-9 columns content">
     <table class="manage_table" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th class='thead_id' scope="col"><?= $this->Paginator->sort('管理番号') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('タイトル') ?></th>
-                <th class="thead_modified" scope="col"><?= $this->Paginator->sort('最新更新日時') ?></th>
+                <th class='thead_id' scope="col"><?= $this->Paginator->sort('id') ?></th>
+                <th class="thead_title" scope="col"><?= $this->Paginator->sort('title', ['label' => 'タイトル']) ?></th>
+                <th class="thead_modified" scope="col"><?= $this->Paginator->sort('modified', ['label' => '最新更新日時']) ?></th>
                 <th class='thead_action' scope="col" class="actions"><?= __('操作') ?></th>
             </tr>
         </thead>
