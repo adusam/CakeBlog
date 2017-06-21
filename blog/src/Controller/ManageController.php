@@ -65,8 +65,10 @@ class ManageController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $article = $this->Articles->patchEntity($article, $this->request->getData(), ['associated' => ['Pictures']]);
 
-            if (isset($this->request->data['picture_data']['tmp_name'])) {
-                $tmp = $this->request->data['picture_data']['tmp_name'];
+            // var_dump($this->request->data);
+            // return;
+            if (isset($this->request->data['picture_id']['tmp_name'])) {
+                $tmp = $this->request->data['picture_id']['tmp_name'];
 
                 if(is_uploaded_file($tmp)) {
                     $filename = date('Y_m_d_H_i_s').".jpg";
