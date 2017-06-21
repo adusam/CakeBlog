@@ -7,8 +7,8 @@
     <article>
         <div class="view_article">
             <div class="clearfix">
-                <h2><?= h($article->title) ?></h2>
                 <div class="view_article_date"><?= h($article->modified->format('Y/m/d H:i')) ?></div>
+                <h2 class="view_article_title"><?= h($article->title) ?></h2>
             </div>
             <div class="view_article_picture">
                 <span>
