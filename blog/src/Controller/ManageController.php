@@ -65,18 +65,21 @@ class ManageController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $article = $this->Articles->patchEntity($article, $this->request->getData(), ['associated' => ['Pictures']]);
 
-            $tmp = $this->request->data['picture_data']['tmp_name'];
-            if(is_uploaded_file($tmp)) {
-                $filename = date('Y_m_d_H_i_s').".jpg";
-                $dir = "/xampp/htdocs/CakeBlog/blog/webroot/uploads/pictures";
-                move_uploaded_file($tmp, $dir . DS . $filename);
+            if (isset($this->request->data['picture_data']['tmp_name'])) {
+                $tmp = $this->request->data['picture_data']['tmp_name'];
 
-                $picture = $this->Pictures->patchEntity($picture, ['data' => $filename]);
-                if ($this->Pictures->save($picture)) {
-                    echo "saved\n";
-                }
-                else {
-                    $this->Flash->error(__('The picture could not be saved.'));
+                if(is_uploaded_file($tmp)) {
+                    $filename = date('Y_m_d_H_i_s').".jpg";
+                    $dir = "/xampp/htdocs/CakeBlog/blog/webroot/uploads/pictures";
+                    move_uploaded_file($tmp, $dir . DS . $filename);
+
+                    $picture = $this->Pictures->patchEntity($picture, ['data' => $filename]);
+                    if ($this->Pictures->save($picture)) {
+                        echo "saved\n";
+                    }
+                    else {
+                        $this->Flash->error(__('The picture could not be saved.'));
+                    }
                 }
             }
             $article['picture_id'] = $picture['id'];
