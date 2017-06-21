@@ -7,8 +7,10 @@
 <div class="articles index large-10">
     <?php foreach ($articles as $article): ?>
     <article class = 'kiji'>
-        <div class = "article_modified right"><?= h($article->modified->format('Y/m/d H:i')) ?></div>
-        <div class = 'article_title'><?= $this->Html->Link(__( h($article->title) ), ['action' => 'view', $article->id]) ?></div>
+        <div class = 'article_title'>
+            <h2><?= $this->Html->Link(__( h($article->title) ), ['action' => 'view', $article->id]) ?></h2>
+            <span class = "article_modified"><?= h($article->modified->format('Y/m/d H:i')) ?></span>
+        </div>
         <div class = 'picture_body'>
             <span class = 'article_picture'>
                 <?php
@@ -21,7 +23,10 @@
                 ?>
                 <?= $this->Html->image($img) ?>
             </span>
-            <span class = 'article_body'><?= mb_strimwidth(h($article->body), 0, 50, "..."); ?></span>
+            <span class = 'article_body'>
+                <!-- <?= $this->Text->autoParagraph(h($article->body)); ?> -->
+                <?= $this->Text->autoParagraph(mb_strimwidth(h($article->body), 0, 200, "...")); ?>
+            </span>
         </div>
     </article>
     <?php endforeach; ?>

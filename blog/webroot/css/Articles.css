@@ -32,24 +32,31 @@
 
 
 /*記事タイトルと日付*/
-.title_modified
-{
+.article_title {
+    display: flex;
     border-bottom: 2px solid #ddd;
     margin-bottom: 20px;
-    padding-left: 20px;
 }
-.article_title
-{
-    overflow: hidden;
-    /*white-space: nowrap;*/
-    text-overflow: ellipsis;
-    border-bottom: 2px solid #ddd;
-    margin-bottom: 20px;
+.article_title h2 {
+    flex: 1;
     padding-left: 10px;
+    padding-bottom: 5px;
     display: block;
     width: 100%;
     font-size: 1.8em;
-    line-height: 1.2;
+    line-height: 1;
+}
+.article_title h2 a {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+}
+.article_modified {
+    margin-right: 5px;
+    width: 130px;
+    /*border-bottom: 2px solid #ddd;*/
+    /*margin-bottom: 20px;*/
+    /*padding-left: 20px;*/
 }
 
 /*日付*/
@@ -60,22 +67,28 @@
 
 
 .picture_body {
-    margin: 0 5%;
+    margin-left: 5%;
     display: flex;
 }
 
 /*画像*/
 .article_picture {
     width: 20%;
+    /*height: 150px;*/
 }
 
 /*本文*/
-.article_body{
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+.article_body {
+    flex: 1;
+    white-space: normal;
+    /*text-overflow: ellipsis;*/
     display: block;
+    height: 150px;
     margin-left: 3%;
+    max-width: 80%;
+}
+
+.article_body p{
     font-size: 1.5em;
 }
 
