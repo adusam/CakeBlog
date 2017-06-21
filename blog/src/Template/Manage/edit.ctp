@@ -19,8 +19,14 @@
 
 
     </fieldset>
-
-    <?= $this->Form->button(__('記事投稿'),['class' => 'manage_button']) ?>
+    <?php
+        if (is_null($article->title)) {
+            echo $this->Form->button(__('投稿'),['class' => 'manage_button']);
+        }
+        else {
+            echo $this->Form->button(__('保存'),['class' => 'manage_button']);
+        }
+    ?>
     <?php $url = $this->Url->build(['action' => 'index']) ?>
     <?= $this->Form->button(__('キャンセル'),['class' => 'manage_button', 'type' => 'button', 'onclick' => "location.href='$url'"]) ?>
     <?= $this->Form->end() ?>
