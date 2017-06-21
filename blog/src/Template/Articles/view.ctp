@@ -13,14 +13,11 @@
             <div class="view_article_picture">
                 <span>
                     <?php
-                    if ( is_null($article['picture_id'])) {
-                        $img = "/webroot/uploads/pictures/noimage.jpg";
-                    }
-                    else {
+                    if ( !is_null($article['picture_id'])) {
                         $img = "/webroot/uploads/pictures/" . $article->picture['data'];
+                        echo $this->Html->image($img);
                     }
                     ?>
-                    <?= $this->Html->image($img) ?>
                 </span>
             </div>
             <div class="view_article_body">
