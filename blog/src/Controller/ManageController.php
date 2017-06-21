@@ -32,7 +32,8 @@ class ManageController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Pictures']
+            'contain' => ['Pictures'],
+            'order' => ['id' => 'desc']
         ];
 
         $articles = $this->paginate($this->Articles);
