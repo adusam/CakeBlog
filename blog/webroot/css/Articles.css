@@ -114,6 +114,7 @@
 }
 
 .view_article_body p {
+    text-align: left;
 }
 
 .articles .view_comment_list h4 {
@@ -139,9 +140,12 @@
 .view_comment .comment_body {
     margin-top: 5px;
     margin-left: 5px;
-    padding: 5px 0 10px 15px;
+    padding: 5px 15px 10px 15px;
     border: 1px solid #ddd;
     border-top: none;
+}
+.view_comment .comment_body p {
+    margin: 0;
 }
 .view_comment .actions a {
     font-size: 13px;

@@ -41,7 +41,7 @@
                         <span class="comment_date right"><?= h($comment->modified->format('Y/m/d H:i')) ?></span>
                     </div>
                     <div class="comment_body">
-                        <span><?= h($comment->body) ?></span>
+                        <?= $this->Text->autoParagraph(h($comment->body)); ?>
                     </div>
                 </article>
             <?php endforeach; ?>
