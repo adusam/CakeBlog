@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\ORM\Query;
 
 use App\Model\Entity\Comment;
 
@@ -51,9 +52,11 @@ class ArticlesController extends AppController
      */
     public function view($id = null)
     {
+
         $article = $this->Articles->get($id, [
             'contain' => ['Pictures', 'Comments']
         ]);
+        rsort($article->comments);//コメントを新しい順に（編集で上には来ない）
         $this->set('article', $article);
         $this->set('new_comment', new Comment());
         $this->set('_serialize', ['article', 'new_comment']);
