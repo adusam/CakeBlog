@@ -8,3 +8,7 @@ table tbody tr td, table thead tr th {
 .asc::after {
     content: ' \25b2'
 }
+
+html {
+    height: auto;
+}
