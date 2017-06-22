@@ -15,7 +15,7 @@ class CreateArticles extends AbstractMigration
         $table = $this->table('articles');
         $table->addColumn('title', 'string', [
             'default' => null,
-            'limit' => 50,
+            'limit' => 20,
             'null' => false,
         ]);
         $table->addColumn('body', 'text', [
