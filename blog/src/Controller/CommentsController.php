@@ -75,7 +75,7 @@ class CommentsController extends AppController
                     $this->Flash->error(__('コメント投稿ができませんでした。再度、投稿をお願いします。'));
                 }
             } else {
-                $this->Flash->error(__('パスワードが間違っているか、設定されていません。'));
+                $this->Flash->error(__('パスワードが間違っているか、投稿時にパスワードが設定されていません。'));
             }
         }
         $comment->password = '';
