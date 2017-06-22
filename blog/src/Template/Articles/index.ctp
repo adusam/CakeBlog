@@ -15,7 +15,7 @@
             <span class = 'article_picture'>
                 <?php
                 if ( is_null($article['picture_id'])) {
-                    $img = "/webroot/uploads/pictures/noimage.jpg";
+                    $img = "/webroot/img/noimage.jpg";
                 }
                 else {
                     $img = "/webroot/uploads/pictures/" . $article->picture['data'];
