@@ -12,3 +12,7 @@ table tbody tr td, table thead tr th {
 html {
     height: auto;
 }
+
+p {
+    word-wrap: break-word;
+}
