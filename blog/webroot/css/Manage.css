@@ -48,6 +48,7 @@
 .kiji_id {
     text-align: right;
     border-right: 2px dotted #ddd;
+    padding: 10px 5px 10px 0;
 }
 /*タイトル*/
 .kiji_title {
