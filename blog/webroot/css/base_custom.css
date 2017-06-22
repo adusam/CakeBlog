@@ -3,8 +3,8 @@ table tbody tr td, table thead tr th {
     table-layout: fixed;
 }
 .desc::after {
-    content: ' \25b2'
+    content: ' \25bc'
 }
 .asc::after {
-    content: ' \25bc'
+    content: ' \25b2'
 }
