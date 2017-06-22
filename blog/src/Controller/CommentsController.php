@@ -28,6 +28,10 @@ class CommentsController extends AppController
         $this->autoRender = false;
         $comment = $this->Comments->newEntity();
         if ($this->request->is('post')) {
+            if (mb_ereg_match("^(\s|　)+$", $this->request->data['body'])) {
+                $this->Flash->error(__('空白のみのコメントは投稿できません。'));
+                return $this->redirect(['controller' => 'Articles', 'action' => 'view', $this->request->data['article_id']]);
+            }
 
             // hash password
             if (!empty($this->request->data['password'])) {
