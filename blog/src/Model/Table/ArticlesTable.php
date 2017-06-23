@@ -63,7 +63,7 @@ class ArticlesTable extends Table
 
         $validator
             ->requirePresence('title', 'create')
-            ->notEmpty('title', 'Fill this field.')
+            ->notEmpty('title', 'タイトルがありません。')
             ->add('title', [
                 'length' => [
                     'rule' => ['maxLength', 20],
