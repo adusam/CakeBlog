@@ -9,13 +9,12 @@
 
             echo $this->Form->control('title' , ['label' => 'タイトル']);
             echo $this->Form->control('body' , ['label' => '内容']);
-            echo $this->Form->control('picture_id', ['type' => 'file', 'label' => '']);
+            echo $this->Form->control('picture_id', ['type' => 'file', 'label' => '※JPG形式の画像のみアップロードできます。']);
             if (isset($article->picture['data'])) {
                 echo $this->Html->image("/webroot/uploads/pictures/".$article->picture['data']);
             }
 
         ?>
-<div>※JPG形式の画像のみアップロードできます。</div>
 
     </fieldset>
     <?php

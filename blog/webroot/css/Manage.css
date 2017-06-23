@@ -91,7 +91,14 @@
 */
 .manage_edit {
     margin: 0 auto;
+}
 
+.manage_edit .input.file {
+    display: block;
+}
+.manage_edit .input.file *{
+    display: inline-block;
+    /*width: auto;*/
 }
 
 .manage_button, .manage_button_delete {
