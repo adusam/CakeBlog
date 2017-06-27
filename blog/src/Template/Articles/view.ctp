@@ -54,7 +54,7 @@
             <?php
                 echo $this->Form->control('name', ['label' => 'お名前']);
                 echo $this->Form->control('body', ['label' => '内容', 'type' => 'textarea']);
-                echo $this->Form->control('password', ['label' => 'パスワード']);
+                echo $this->Form->control('password', ['label' => 'パスワード', 'value' => '']);
                 echo $this->Form->hidden('article_id', ['value' => $article->id]);
             ?>
             <div class="caution">※PWを設定しない場合、コメントの編集・削除ができません。</div>
