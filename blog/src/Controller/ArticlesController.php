@@ -5,7 +5,7 @@ use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\ORM\Query;
 
-use App\Model\Entity\Comment;
+// use App\Model\Entity\Comment;
 
 /**
  * Articles Controller
@@ -52,13 +52,23 @@ class ArticlesController extends AppController
      */
     public function view($id = null)
     {
-
         $article = $this->Articles->get($id, [
             'contain' => ['Pictures', 'Comments']
         ]);
+
+        if (!empty($this->request->session()->read('Comment'))) {
+            $comment = $this->request->session()->consume('Comment');
+            // var_dump($this->request->session()->read('CommentData'));
+            // $this->request->data() = $this->request->session()->read('CommentData');]
+            // $comment = $this->Articles->Comments->patchEntity($comment, $this->request->session()->consume('CommentData'), ['fieldList' => ['name', 'body', 'modified']]);
+            var_dump($comment);
+        }
+        else {
+            $comment = $this->Articles->Comments->newEntity();
+        }
         rsort($article->comments);//コメントを新しい順に（編集で上には来ない）
         $this->set('article', $article);
-        $this->set('new_comment', new Comment());
+        $this->set('new_comment', $comment);
         $this->set('_serialize', ['article', 'new_comment']);
 
         $this->set('pagename', '記事詳細');

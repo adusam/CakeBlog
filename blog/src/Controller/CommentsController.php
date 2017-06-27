@@ -26,23 +26,30 @@ class CommentsController extends AppController
     public function add()
     {
         $this->autoRender = false;
-        $comment = $this->Comments->newEntity();
         if ($this->request->is('post')) {
+            $comment = $this->Comments->newEntity();
             if (mb_ereg_match("^(\s|　)+$", $this->request->data['body'])) {
                 $this->Flash->error(__('空白のみのコメントは投稿できません。'));
                 return $this->redirect(['controller' => 'Articles', 'action' => 'view', $this->request->data['article_id']]);
             }
 
-            // hash password
+            // hashed password
             if (!empty($this->request->data['password'])) {
                 $hasher = new DefaultPasswordHasher();
                 $this->request->data['password'] = $hasher->hash($this->request->data['password']);
             }
             $comment = $this->Comments->patchEntity($comment, $this->request->getData());
+
             if ($this->Comments->save($comment)) {
                 $this->Flash->success(__('コメントが投稿されました。'));
-            } else {
+            }
+            else {
                 $this->Flash->error(__('コメント投稿ができませんでした。再度、投稿をお願いします。'));
+
+                if (!empty($comment->getErrors())) {
+                    $comment['name'] = $this->request->getData('name');
+                    $this->request->session()->write('Comment', $comment);
+                }
             }
             return $this->redirect(['controller' => 'Articles', 'action' => 'view', $comment->article_id]);
         } else {
