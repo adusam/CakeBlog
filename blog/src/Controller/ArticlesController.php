@@ -58,10 +58,6 @@ class ArticlesController extends AppController
 
         if (!empty($this->request->session()->read('Comment'))) {
             $comment = $this->request->session()->consume('Comment');
-            // var_dump($this->request->session()->read('CommentData'));
-            // $this->request->data() = $this->request->session()->read('CommentData');]
-            // $comment = $this->Articles->Comments->patchEntity($comment, $this->request->session()->consume('CommentData'), ['fieldList' => ['name', 'body', 'modified']]);
-            var_dump($comment);
         }
         else {
             $comment = $this->Articles->Comments->newEntity();

@@ -47,7 +47,6 @@ class CommentsController extends AppController
                 $this->Flash->error(__('コメント投稿ができませんでした。再度、投稿をお願いします。'));
 
                 if (!empty($comment->getErrors())) {
-                    $comment['name'] = $this->request->getData('name');
                     $this->request->session()->write('Comment', $comment);
                 }
             }
@@ -108,9 +107,7 @@ class CommentsController extends AppController
         // $this->request->allowMethod(['post', 'delete']);
         $comment = $this->Comments->get($id);
         $hasher = new DefaultPasswordHasher();
-        // var_dump($this->request->data['password']);
-        // var_dump($comment->password);
-        // return;
+
         if( isset($comment->password) && !empty($comment->password)
         && isset($this->request->data['password'])
         && $hasher->check($this->request->data['password'], $comment->password))
