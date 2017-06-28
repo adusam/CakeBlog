@@ -6,31 +6,24 @@
     <?= $this->Form->create($article,['class' => 'manage_edit large-10', 'type' => 'file']) ?>
     <fieldset>
         <?php
-
             echo $this->Form->control('title' , ['label' => 'タイトル']);
             echo $this->Form->control('body' , ['label' => '内容']);
             echo $this->Form->control('picture_id', ['type' => 'file', 'label' => '※JPG形式の画像のみアップロードできます。']);
-            if (isset($article->picture['data'])) {
-                echo $this->Html->image("/webroot/uploads/pictures/".$article->picture['data']);
-            }
-
+            if (isset($article->picture['data'])) echo $this->Html->image("/webroot/uploads/pictures/".$article->picture['data']);
         ?>
-
     </fieldset>
     <?php
         if (is_null($article->title)) {
-            echo $this->Form->button(__('投稿'),[
-                'class' => 'manage_button',
-                'onclick' => 'javascript:disableBtn(this);submit(this);'
-            ]);
+            $submitStr = "投稿";
         }
         else {
-            echo $this->Form->button(__('保存'),[
-                'class' => 'manage_button',
-                'onclick' => 'javascript:disableBtn(this);submit(this);'
-            ]);
+            $submitStr = "保存";
         }
     ?>
+    <?= $this->Form->button(__($submitStr),[
+        'class' => 'manage_button',
+        'onclick' => 'javascript:disableBtn(this);submit(this);'
+    ]); ?>
     <?php $url = $this->Url->build(['action' => 'index']) ?>
     <?= $this->Form->button(__('キャンセル'),['class' => 'manage_button', 'type' => 'button', 'onclick' => "location.href='$url';"]) ?>
     <?= $this->Form->end() ?>
