@@ -84,32 +84,33 @@ class ManageController extends AppController
                 // $fileInfo = new File("/xampp/htdocs/CakeBlog/blog/webroot/uploads/pictures/");
 
 
-                if(is_uploaded_file($tmp)) {
-                    $dir = "/xampp/htdocs/CakeBlog/blog/webroot/uploads/pictures";
-                    move_uploaded_file($tmp, $dir . DS . $filename);
 
-                    $picture = $this->Pictures->patchEntity($picture, ['data' => $filename]);
-                    if ($this->Pictures->save($picture)) {
-                        echo "saved\n";
-                    }
-                    else {
-                        $this->Flash->error(__('画像の保存ができませんでした。'));
-                    }
-                }
             }
             $article['picture_id'] = $picture['id'];
 
-                if($img_extension = array_search($mime_type, $extension_array))
+                if($img_extension = array_search($mime_type, $extension_array) || $tmp === "")
                     {
+                        if(is_uploaded_file($tmp)) {
+                            $dir = "/xampp/htdocs/CakeBlog/blog/webroot/uploads/pictures";
+                            move_uploaded_file($tmp, $dir . DS . $filename);
+
+                            $picture = $this->Pictures->patchEntity($picture, ['data' => $filename]);
+                            if ($this->Pictures->save($picture)) {
+                                echo "saved\n";
+                            }
+                            else {
+                                $this->Flash->error(__('画像の保存ができませんでした。'));
+                            }
+                        }
                         if ($this->Articles->save($article)) {
                         $this->Flash->success(__('記事が投稿されました。'));
                         return $this->redirect(['action' => 'index']);
                     }
                         $this->Flash->error(__('記事の投稿ができませんでした。再度、投稿をお願いします。'));
-                    }else {
-                        $this->Flash->error(__('このファイルはアップロードできません。'));
                     }
-
+                    else{
+                    $this->Flash->error(__('このファイルはアップロードできません。'));
+                    }
         }
 
         $this->set(compact('article'));
