@@ -10,8 +10,8 @@
             echo $this->Form->control('body' , ['label' => '内容']);
             echo $this->Form->control('picture_id', ['type' => 'file', 'label' => '※JPG形式の画像のみアップロードできます。']);
             if (isset($article->picture['data'])){
-                echo $this->Html->image("/webroot/uploads/pictures/".$article->picture['data'], ['class' => 'img']);
-                echo $this->Form->button(__('画像を削除'), ['type' => 'button', 'onclick' => 'disableBtn(picture_id)']);
+                echo $this->Html->image("/webroot/uploads/pictures/".$article->picture['data'], ['id' => 'edit_img']);
+                echo $this->Form->button(__('画像を削除'), ['type' => 'button', 'id' => 'img_delete_btn', 'onclick' => 'disableImage();']);
             }
         ?>
     </fieldset>
@@ -46,5 +46,11 @@
 <script type="text/javascript">
     function disableBtn(btn) {
         btn.disabled = true;
+    }
+
+    function disableImage() {
+        document.getElementById('picture-id').setAttribute('disabled', true);
+        document.getElementById('edit_img').setAttribute('style', 'display:none');
+        document.getElementById('img_delete_btn').setAttribute('style', 'display:none');
     }
 </script>
