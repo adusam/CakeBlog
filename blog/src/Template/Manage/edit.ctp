@@ -9,7 +9,10 @@
             echo $this->Form->control('title' , ['label' => 'タイトル']);
             echo $this->Form->control('body' , ['label' => '内容']);
             echo $this->Form->control('picture_id', ['type' => 'file', 'label' => '※JPG形式の画像のみアップロードできます。']);
-            if (isset($article->picture['data'])) echo $this->Html->image("/webroot/uploads/pictures/".$article->picture['data']);
+            if (isset($article->picture['data'])){
+                echo $this->Html->image("/webroot/uploads/pictures/".$article->picture['data'], ['class' => 'img']);
+                echo $this->Form->button(__('画像を削除'), ['type' => 'button', 'onclick' => 'disableBtn(picture_id)']);
+            }
         ?>
     </fieldset>
     <?php

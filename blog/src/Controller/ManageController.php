@@ -57,7 +57,7 @@ class ManageController extends AppController
             $article = $this->Articles->newEntity();
         } else {
             $article = $this->Articles->get($id, [
-                'contain' => ['Pictures']
+                'contain' => ['Pictures'],
             ]);
         }
 
@@ -65,59 +65,70 @@ class ManageController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             // return;
             //画像保存
-            if (!empty($this->request->data['picture_id']['name'])) { //ファイルが与えられているとき
-                if (empty($this->request->data['picture_id']['tmp_name']) ){ //ファイルが一時ファイルに無いとき
-                    $this->Flash->error(__('ファイルの情報が取得できません'));
-                    $imgSaved = false;
-                }
-                else {
-                    $tmp = $this->request->data['picture_id']['tmp_name'];
-                    // return var_dump($name);
-                    $img_data = file_get_contents($tmp);
-                    // $ext = $img_data->ext();
-
-                    $fileinfo = finfo_open(FILEINFO_MIME_TYPE);
-                    $mime_type = finfo_buffer($fileinfo, $img_data);
-                    finfo_close($fileinfo);
-                    $extension_array = array(
-                        'image/jpeg',
-                        'image/png',
-                        'image/gif'
-                    );
-
-                    $filename = date('ymdHis_').$this->request->data['picture_id']['name'];
-                    // $fileInfo = new File("/xampp/htdocs/CakeBlog/blog/webroot/uploads/pictures/");
-
-                    if(in_array($mime_type, $extension_array)){//指定した形式通りのとき
-                        if(is_uploaded_file($tmp)) {
-                            $dir = "/xampp/htdocs/CakeBlog/blog/webroot/uploads/pictures";
-                            move_uploaded_file($tmp, $dir . DS . $filename);
-
-                            $picture = $this->Pictures->patchEntity($picture, ['data' => $filename]);
-                            if (!$this->Pictures->save($picture)) {//保存できなかったとき
-                                $this->Flash->error(__('画像の保存ができませんでした。'));
-                                $imgSaved = false;
-                            }
-                            else {
-                                $imgSaved = true;
-                            }
-                        }
-                    }
-                    else{
-                        $this->Flash->error(__('このファイルはアップロードできません。'));
+            if (isset($this->request->data['picture_id'])) {
+                if (!empty($this->request->data['picture_id']['name'])) { //ファイルが与えられているとき
+                    if (empty($this->request->data['picture_id']['tmp_name']) ){ //ファイルが一時ファイルに無いとき
+                        $this->Flash->error(__('ファイルの情報が取得できません'));
                         $imgSaved = false;
                     }
+                    else {
+                        $tmp = $this->request->data['picture_id']['tmp_name'];
+                        // return var_dump($name);
+                        $img_data = file_get_contents($tmp);
+                        // $ext = $img_data->ext();
+
+                        $fileinfo = finfo_open(FILEINFO_MIME_TYPE);
+                        $mime_type = finfo_buffer($fileinfo, $img_data);
+                        finfo_close($fileinfo);
+                        $extension_array = array(
+                            'image/jpeg',
+                            'image/png',
+                            'image/gif'
+                        );
+
+                        $filename = date('ymd_').$this->request->data['picture_id']['name'];
+                        // $fileInfo = new File("/xampp/htdocs/CakeBlog/blog/webroot/uploads/pictures/");
+
+                        if(in_array($mime_type, $extension_array)){//指定した形式通りのとき
+                            if(is_uploaded_file($tmp)) {
+                                $dir = "/xampp/htdocs/CakeBlog/blog/webroot/uploads/pictures";
+                                move_uploaded_file($tmp, $dir . DS . $filename);
+
+                                $picture = $this->Pictures->patchEntity($picture, ['data' => $filename]);
+                                if (!$this->Pictures->save($picture)) {//保存できなかったとき
+                                    $this->Flash->error(__('画像の保存ができませんでした。'));
+                                    $imgSaved = false;
+                                }
+                                else {
+                                    $imgSaved = true;
+                                    $imgNone = false;
+
+                                }
+                            }
+                        }
+                        else{
+                            $this->Flash->error(__('このファイルはアップロードできません。'));
+                            $imgSaved = false;
+                        }
+                    }
+                }
+                else {
+                    $imgSaved = true;
+                    $imgNone = true;
                 }
             }
             else {
                 $imgSaved = true;
+                $imgNone = false;
             }
 
             //記事保存
             // $article = $this->Articles->patchEntity($article, $this->request->getData(), ['associated' => ['Pictures']]);
             $article = $this->Articles->patchEntity($article, $this->request->getData());
             if ($imgSaved) {//画像保存がうまく行った、もしくは与えられていない
-                $article['picture_id'] = $picture['id'];
+                if ($imgNone) unset($article["picture_id"]);
+                else $article['picture_id'] = $picture['id'];
+
                 if ($this->Articles->save($article)) {
                     $this->Flash->success(__('記事が投稿されました。'));
                     return $this->redirect(['action' => 'index']);
