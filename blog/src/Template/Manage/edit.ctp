@@ -8,7 +8,7 @@
         <?php
             echo $this->Form->control('title' , ['label' => 'タイトル']);
             echo $this->Form->control('body' , ['label' => '内容']);
-            echo $this->Form->control('picture_id', ['type' => 'file', 'label' => '※JPG形式の画像のみアップロードできます。']);
+            echo $this->Form->control('picture_id', ['type' => 'file', 'label' => '※JPG、PNG、GIF形式の画像のみアップロードできます。']);
             if (isset($article->picture['data'])){
                 echo $this->Html->image("/webroot/uploads/pictures/".$article->picture['data'], ['id' => 'edit_img']);
                 echo $this->Form->button(__('画像を削除'), ['type' => 'button', 'id' => 'img_delete_btn', 'onclick' => 'disableImage();']);
