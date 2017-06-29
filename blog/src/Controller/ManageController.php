@@ -64,8 +64,8 @@ class ManageController extends AppController
         $picture = $this->Pictures->newEntity();
 
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $article = $this->Articles->patchEntity($article, $this->request->getData(), ['associated' => ['Pictures']]);
-            if (isset($this->request->data['picture_id']['tmp_name'])) {
+            //画像保存
+            if (isset($this->request->data['picture_id']['tmp_name']) && !empty($this->request->data['picture_id']['tmp_name'])) {
                 $tmp = $this->request->data['picture_id']['tmp_name'];
                 // return var_dump($name);
                 $img_data = file_get_contents($tmp);
@@ -82,7 +82,6 @@ class ManageController extends AppController
 
                 $filename = date('ymdHis_').$this->request->data['picture_id']['name'];
                 // $fileInfo = new File("/xampp/htdocs/CakeBlog/blog/webroot/uploads/pictures/");
-        
 
                 if($img_extension = array_search($mime_type, $extension_array) || $tmp === ""){
                     if(is_uploaded_file($tmp)) {
@@ -104,8 +103,11 @@ class ManageController extends AppController
                 }
 
             }
-            $article['picture_id'] = $picture['id'];
 
+            //記事保存
+            // $article = $this->Articles->patchEntity($article, $this->request->getData(), ['associated' => ['Pictures']]);
+            $article = $this->Articles->patchEntity($article, $this->request->getData());
+            $article['picture_id'] = $picture['id'];
             if ($this->Articles->save($article)) {
                 $this->Flash->success(__('記事が投稿されました。'));
                 return $this->redirect(['action' => 'index']);
