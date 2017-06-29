@@ -16,3 +16,6 @@ html {
 p {
     word-wrap: break-word;
 }
+textarea {
+    resize: vertical;
+}
