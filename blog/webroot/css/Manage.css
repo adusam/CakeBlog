@@ -109,6 +109,9 @@
 #edit_img_box {
     display: inline-block;
 }
+#edit_img_box > img {
+    border: solid 1px #ddd;
+}
 #img_delete_btn {
     display: block;
     width: 100%;
