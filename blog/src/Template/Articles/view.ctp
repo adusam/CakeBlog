@@ -25,6 +25,7 @@
             </div>
         </div>
 
+        <?php if (!empty($article->comments)): ?>
         <div class="view_comment_list related">
             <h4><?= __('記事へのコメント') ?></h4>
             <?php foreach ($article->comments as $comment): ?>
@@ -43,6 +44,7 @@
                 </article>
             <?php endforeach; ?>
         </div>
+    <?php endif; ?>
     </article>
 
     <div class="view_comment_form clearfix">
